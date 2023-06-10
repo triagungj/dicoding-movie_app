@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dartz/dartz.dart';
 import 'package:ditonton/common/failure.dart';
 import 'package:ditonton/common/state_enum.dart';
@@ -25,7 +27,7 @@ void main() {
       });
   });
 
-  final tMovie = Movie(
+  const tMovie = Movie(
     adult: false,
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
@@ -48,9 +50,9 @@ void main() {
     when(mockGetPopularMovies.execute())
         .thenAnswer((_) async => Right(tMovieList));
     // act
-    notifier.fetchPopularMovies();
+    unawaited(notifier.fetchPopularMovies());
     // assert
-    expect(notifier.state, RequestState.Loading);
+    expect(notifier.state, RequestState.loading);
     expect(listenerCallCount, 1);
   });
 
@@ -61,7 +63,7 @@ void main() {
     // act
     await notifier.fetchPopularMovies();
     // assert
-    expect(notifier.state, RequestState.Loaded);
+    expect(notifier.state, RequestState.loaded);
     expect(notifier.movies, tMovieList);
     expect(listenerCallCount, 2);
   });
@@ -69,11 +71,11 @@ void main() {
   test('should return error when data is unsuccessful', () async {
     // arrange
     when(mockGetPopularMovies.execute())
-        .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+        .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
     // act
     await notifier.fetchPopularMovies();
     // assert
-    expect(notifier.state, RequestState.Error);
+    expect(notifier.state, RequestState.error);
     expect(notifier.message, 'Server Failure');
     expect(listenerCallCount, 2);
   });

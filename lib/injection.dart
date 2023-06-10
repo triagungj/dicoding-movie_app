@@ -19,79 +19,84 @@ import 'package:ditonton/presentation/provider/movie_search_notifier.dart';
 import 'package:ditonton/presentation/provider/popular_movies_notifier.dart';
 import 'package:ditonton/presentation/provider/top_rated_movies_notifier.dart';
 import 'package:ditonton/presentation/provider/watchlist_movie_notifier.dart';
-import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
+import 'package:http/http.dart' as http;
 
 final locator = GetIt.instance;
 
 void init() {
   // provider
-  locator.registerFactory(
-    () => MovieListNotifier(
-      getNowPlayingMovies: locator(),
-      getPopularMovies: locator(),
-      getTopRatedMovies: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => MovieDetailNotifier(
-      getMovieDetail: locator(),
-      getMovieRecommendations: locator(),
-      getWatchListStatus: locator(),
-      saveWatchlist: locator(),
-      removeWatchlist: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => MovieSearchNotifier(
-      searchMovies: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => PopularMoviesNotifier(
-      locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => TopRatedMoviesNotifier(
-      getTopRatedMovies: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => WatchlistMovieNotifier(
-      getWatchlistMovies: locator(),
-    ),
-  );
+  locator
+    ..registerFactory(
+      () => MovieListNotifier(
+        getNowPlayingMovies: locator(),
+        getPopularMovies: locator(),
+        getTopRatedMovies: locator(),
+      ),
+    )
+    ..registerFactory(
+      () => MovieDetailNotifier(
+        getMovieDetail: locator(),
+        getMovieRecommendations: locator(),
+        getWatchListStatus: locator(),
+        saveWatchlist: locator(),
+        removeWatchlist: locator(),
+      ),
+    )
+    ..registerFactory(
+      () => MovieSearchNotifier(
+        searchMovies: locator(),
+      ),
+    )
+    ..registerFactory(
+      () => PopularMoviesNotifier(
+        locator(),
+      ),
+    )
+    ..registerFactory(
+      () => TopRatedMoviesNotifier(
+        getTopRatedMovies: locator(),
+      ),
+    )
+    ..registerFactory(
+      () => WatchlistMovieNotifier(
+        getWatchlistMovies: locator(),
+      ),
+    )
 
-  // use case
-  locator.registerLazySingleton(() => GetNowPlayingMovies(locator()));
-  locator.registerLazySingleton(() => GetPopularMovies(locator()));
-  locator.registerLazySingleton(() => GetTopRatedMovies(locator()));
-  locator.registerLazySingleton(() => GetMovieDetail(locator()));
-  locator.registerLazySingleton(() => GetMovieRecommendations(locator()));
-  locator.registerLazySingleton(() => SearchMovies(locator()));
-  locator.registerLazySingleton(() => GetWatchListStatus(locator()));
-  locator.registerLazySingleton(() => SaveWatchlist(locator()));
-  locator.registerLazySingleton(() => RemoveWatchlist(locator()));
-  locator.registerLazySingleton(() => GetWatchlistMovies(locator()));
+    // use case
+    ..registerLazySingleton(() => GetNowPlayingMovies(locator()))
+    ..registerLazySingleton(() => GetPopularMovies(locator()))
+    ..registerLazySingleton(() => GetTopRatedMovies(locator()))
+    ..registerLazySingleton(() => GetMovieDetail(locator()))
+    ..registerLazySingleton(() => GetMovieRecommendations(locator()))
+    ..registerLazySingleton(() => SearchMovies(locator()))
+    ..registerLazySingleton(() => GetWatchListStatus(locator()))
+    ..registerLazySingleton(() => SaveWatchlist(locator()))
+    ..registerLazySingleton(() => RemoveWatchlist(locator()))
+    ..registerLazySingleton(() => GetWatchlistMovies(locator()))
 
-  // repository
-  locator.registerLazySingleton<MovieRepository>(
-    () => MovieRepositoryImpl(
-      remoteDataSource: locator(),
-      localDataSource: locator(),
-    ),
-  );
+    // repository
+    ..registerLazySingleton<MovieRepository>(
+      () => MovieRepositoryImpl(
+        remoteDataSource: locator(),
+        localDataSource: locator(),
+      ),
+    )
 
-  // data sources
-  locator.registerLazySingleton<MovieRemoteDataSource>(
-      () => MovieRemoteDataSourceImpl(client: locator()));
-  locator.registerLazySingleton<MovieLocalDataSource>(
-      () => MovieLocalDataSourceImpl(databaseHelper: locator()));
+    // data sources
 
-  // helper
-  locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper());
+    ..registerLazySingleton<MovieRemoteDataSource>(
+      () => MovieRemoteDataSourceImpl(client: locator()),
+    )
+    ..registerLazySingleton<MovieLocalDataSource>(
+      () => MovieLocalDataSourceImpl(databaseHelper: locator()),
+    )
 
-  // external
-  locator.registerLazySingleton(() => http.Client());
+    // helper
+
+    ..registerLazySingleton<DatabaseHelper>(DatabaseHelper.new)
+
+    // external
+    ..registerLazySingleton(http.Client.new);
 }

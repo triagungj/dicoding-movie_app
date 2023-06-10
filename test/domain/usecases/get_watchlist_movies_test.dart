@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/usecases/get_watchlist_movies.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
@@ -22,6 +23,6 @@ void main() {
     // act
     final result = await usecase.execute();
     // assert
-    expect(result, Right(testMovieList));
+    expect(result, Right<dynamic, List<Movie>>(testMovieList));
   });
 }

@@ -1,0 +1,13 @@
+import 'package:dartz/dartz.dart';
+import 'package:ditonton/common/failure.dart';
+import 'package:ditonton/domain/entities/tv_series.dart';
+import 'package:ditonton/domain/repositories/tv_series_repository.dart';
+
+class GetTvTopRated {
+  GetTvTopRated(this.repository);
+  final TvSeriesRepository repository;
+
+  Future<Either<Failure, List<TvSeries>>> execute() async {
+    return repository.getTopRatedTvSeries();
+  }
+}

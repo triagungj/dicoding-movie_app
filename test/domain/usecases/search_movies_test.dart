@@ -16,7 +16,7 @@ void main() {
   });
 
   final tMovies = <Movie>[];
-  final tQuery = 'Spiderman';
+  const tQuery = 'Spiderman';
 
   test('should get list of movies from the repository', () async {
     // arrange
@@ -25,6 +25,6 @@ void main() {
     // act
     final result = await usecase.execute(tQuery);
     // assert
-    expect(result, Right(tMovies));
+    expect(result, Right<String, dynamic>(tMovies));
   });
 }

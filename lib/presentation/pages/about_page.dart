@@ -2,7 +2,9 @@ import 'package:ditonton/common/constants.dart';
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatelessWidget {
-  static const ROUTE_NAME = '/about';
+  const AboutPage({super.key});
+
+  static const routeName = '/about';
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +14,8 @@ class AboutPage extends StatelessWidget {
           Column(
             children: [
               Expanded(
-                child: Container(
-                  color: kPrussianBlue,
+                child: ColoredBox(
+                  color: Constants.kPrussianBlue,
                   child: Center(
                     child: Image.asset(
                       'assets/circle-g.png',
@@ -24,10 +26,10 @@ class AboutPage extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  padding: const EdgeInsets.all(32.0),
-                  color: kMikadoYellow,
-                  child: Text(
-                    'Ditonton merupakan sebuah aplikasi katalog film yang dikembangkan oleh Dicoding Indonesia sebagai contoh proyek aplikasi untuk kelas Menjadi Flutter Developer Expert.',
+                  padding: const EdgeInsets.all(32),
+                  color: Constants.kMikadoYellow,
+                  child: const Text(
+                    '''Ditonton merupakan sebuah aplikasi katalog film yang dikembangkan oleh Dicoding Indonesia sebagai contoh proyek aplikasi untuk kelas Menjadi Flutter Developer Expert.''',
                     style: TextStyle(color: Colors.black87, fontSize: 16),
                     textAlign: TextAlign.justify,
                   ),
@@ -38,7 +40,7 @@ class AboutPage extends StatelessWidget {
           SafeArea(
             child: IconButton(
               onPressed: () => Navigator.pop(context),
-              icon: Icon(Icons.arrow_back),
+              icon: const Icon(Icons.arrow_back),
             ),
           )
         ],

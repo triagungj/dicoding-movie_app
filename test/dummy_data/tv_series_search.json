@@ -1,0 +1,418 @@
+{
+	"page": 1,
+	"results": [
+		{
+			"adult": false,
+			"backdrop_path": "/sSckSjkJaj6tWE4VU633XJgjbKU.jpg",
+			"genre_ids": [
+				18,
+				80,
+				9648,
+				10765
+			],
+			"id": 60726,
+			"origin_country": [
+				"US"
+			],
+			"original_language": "en",
+			"original_name": "Forever",
+			"overview": "Doctor Henry Morgan, New York City’s star medical examiner, has a secret. He doesn't just study the dead to solve criminal cases, he does it to solve the mystery that has eluded him for 200 years—the answer to his own inexplicable immortality. This long life has given Henry remarkable observation skills which impresses his new partner, Detective Jo Martinez. Each week, a new case and their budding friendship will reveal layers of Henry’s long and colorful past. Only his best friend and confidant, Abe knows Henry’s secret.",
+			"popularity": 24.796,
+			"poster_path": "/4OnnU4j2tQEOnsPnRZswW91v9vr.jpg",
+			"first_air_date": "2014-09-22",
+			"name": "Forever",
+			"vote_average": 7.739,
+			"vote_count": 466
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/nHyANWKfXlWyCRcJFjH5ixPlOGL.jpg",
+			"genre_ids": [
+				35,
+				18
+			],
+			"id": 81317,
+			"origin_country": [
+				"US"
+			],
+			"original_language": "en",
+			"original_name": "Forever",
+			"overview": "June and Oscar live a comfortable but very predictable wedded life when suddenly they find themselves in a completely unexpected situation, raising questions about love and marriage.",
+			"popularity": 7.999,
+			"poster_path": "/dNKmZ96oGAAIHGB9KppVtLKOsdo.jpg",
+			"first_air_date": "2018-09-14",
+			"name": "Forever",
+			"vote_average": 6.658,
+			"vote_count": 38
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/bcXKWYvBtMLylONQHp4jkz5RtqP.jpg",
+			"genre_ids": [
+				10766
+			],
+			"id": 82847,
+			"origin_country": [
+				"NL"
+			],
+			"original_language": "nl",
+			"original_name": "#forever",
+			"overview": "",
+			"popularity": 1.35,
+			"poster_path": "/n8YUE3xPx2blTGvcdDqHJyj4HLZ.jpg",
+			"first_air_date": "2018-02-19",
+			"name": "#forever",
+			"vote_average": 0.0,
+			"vote_count": 0
+		},
+		{
+			"adult": false,
+			"backdrop_path": null,
+			"genre_ids": [
+				10766
+			],
+			"id": 30387,
+			"origin_country": [
+				"US"
+			],
+			"original_language": "en",
+			"original_name": "Forever",
+			"overview": "Eighteen years ago, Susan and Michael Vincent travelled to Spain with a group of friends. She was sentenced to life in prison for the murder of Martha. Newly released on parole from the Spanish jail, Susan comes back to Chicago to regain her children’s love and prove her innocence.",
+			"popularity": 4.017,
+			"poster_path": null,
+			"first_air_date": "1996-11-22",
+			"name": "Forever",
+			"vote_average": 6.0,
+			"vote_count": 1
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/yYkNV0S0uVghGCXCkSvmAQFQDGB.jpg",
+			"genre_ids": [
+				18
+			],
+			"id": 46375,
+			"origin_country": [
+				"PH"
+			],
+			"original_language": "tl",
+			"original_name": "Forever",
+			"overview": "Forever is a Filipino drama series created by Jun Lana, developed by Kit Villanueva-Langit and produced by GMA Network. It premiered on January 21, 2013 on GMA Telebabad block and January 24, 2013 worldwide via GMA Pinoy TV. The series headlines Heart Evangelista, Geoff Eigenmann and Gloria Romero. It executive produced by Kaye Atienza-Cadsawan and under the direction of Ricky Davao.\n\nThe show narrates the magical love story of ill-fated lovers, Adora and Ramon and their quest to continue their tragic love affair five decades past through the present time with the help of an antique pocket watch.\n\nThe series concluded on April 19, 2013. It ran for 13 weeks with the total of sixty three episodes.",
+			"popularity": 8.506,
+			"poster_path": "/bD1tvgozQN0MMtp32vQMdbQhfph.jpg",
+			"first_air_date": "2013-01-21",
+			"name": "Forever",
+			"vote_average": 0.0,
+			"vote_count": 0
+		},
+		{
+			"adult": false,
+			"backdrop_path": null,
+			"genre_ids": [
+				18
+			],
+			"id": 7537,
+			"origin_country": [
+				"MX"
+			],
+			"original_language": "es",
+			"original_name": "Mañana es para siempre",
+			"overview": "Mañana es para siempre is a Mexican telenovela that began airing on October 20, 2008 on XEW-TV, also known as Canal de las Estrellas. It is produced by the Televisa television network and is a production of Nicandro Díaz González. It stars Silvia Navarro as \"Fernanda Elizalde\", Fernando Colunga as \"Franco Santoro and Eduardo Juarez\" and Lucero as \"Bárbara Greco\" the main villain of the story.\n\nIts was one of the most popular soap operas in the history of Univision, its finale having been watched by over 11 million viewers, faring well against US mainstream shows.\n\nIt is a remake of the 2007–2008 Colombian telenovela by RCN Pura Sangre, which starred Rafael Novoa, Marcela Mar and Kathy Saenz in the antagonic role.",
+			"popularity": 36.029,
+			"poster_path": "/eU1eiM9kW9iN5AlSGGFO4YTxBSM.jpg",
+			"first_air_date": "2008-10-20",
+			"name": "Tomorrow is forever",
+			"vote_average": 7.352,
+			"vote_count": 196
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/1OMFN8w5JjYokuvZIDWvfJeYyph.jpg",
+			"genre_ids": [
+				18
+			],
+			"id": 130107,
+			"origin_country": [
+				"CN"
+			],
+			"original_language": "zh",
+			"original_name": "一生一世",
+			"overview": "This story is about Shi Yi, a gentle pleasant and low-key but industry's top voice actress, who ran into the elegant returnee chemistry professor Zhousheng Chen at the airport one day. They gradually develop a mutual understanding in getting along with each other, and join hands to preserve traditional craftsmanship and overcome many storms as they decide to accompany each other for the rest of their lives...",
+			"popularity": 13.397,
+			"poster_path": "/6csX8pU1p3Hj8DWknw1IJm0c18i.jpg",
+			"first_air_date": "2021-09-06",
+			"name": "Forever and Ever",
+			"vote_average": 5.75,
+			"vote_count": 4
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/pOX2W0LQUpVabijGD6rhaHmFXyQ.jpg",
+			"genre_ids": [
+				18,
+				10766
+			],
+			"id": 86198,
+			"origin_country": [
+				"BR"
+			],
+			"original_language": "pt",
+			"original_name": "Alto Astral",
+			"overview": "",
+			"popularity": 19.231,
+			"poster_path": "/lZ7k4C7Tb8r0LhmwD06hmJaxBnx.jpg",
+			"first_air_date": "2014-11-03",
+			"name": "Forever and Ever",
+			"vote_average": 7.333,
+			"vote_count": 3
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/ajSkoyrl0o905KukpcZpZMa5FfF.jpg",
+			"genre_ids": [
+				99
+			],
+			"id": 225292,
+			"origin_country": [
+				"US"
+			],
+			"original_language": "en",
+			"original_name": "McGREGOR FOREVER",
+			"overview": "Conor McGregor's brutal strikes and trash-talking swagger made him the UFC's biggest draw. This rousing docuseries follows his dynamic career.",
+			"popularity": 47.79,
+			"poster_path": "/8vjMXey1TDjtXMTzxxG8c0GHvgr.jpg",
+			"first_air_date": "2023-05-17",
+			"name": "McGREGOR FOREVER",
+			"vote_average": 8.15,
+			"vote_count": 20
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/eOaywSydtbNUl8Fdl3J7VI5wMK9.jpg",
+			"genre_ids": [
+				35,
+				18
+			],
+			"id": 61953,
+			"origin_country": [
+				"PH"
+			],
+			"original_language": "tl",
+			"original_name": "Forevermore",
+			"overview": "This is the story of Xander, the rebellious and irresponsible unico hijo of a hotel magnate, and the feisty and hardworking Strawberry Jam Queen of La Trinidad, Benguet, Agnes. Xander and Agnes’ extraordinary relationship starts after an intoxicated Xander crash lands his parachute into a strawberry truck. To teach him a lesson, his parents made him pay for the damages he caused by making him work at the strawberry farm under the guidance of Agnes and other strawberry farmers.",
+			"popularity": 32.724,
+			"poster_path": "/9ptOmMZbVTZmuXIeI0SzhRsTmYE.jpg",
+			"first_air_date": "2014-10-27",
+			"name": "Forevermore",
+			"vote_average": 6.5,
+			"vote_count": 4
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/ynl1QcOClULC32xejSW3SG1QH8P.jpg",
+			"genre_ids": [
+				10764
+			],
+			"id": 89724,
+			"origin_country": [
+				"US"
+			],
+			"original_language": "en",
+			"original_name": "Property Brothers: Forever Home",
+			"overview": "Drew and Jonathan Scott are on a mission to help couples transform their houses into forever homes where they can put down roots and happily spend their lives. But before that can happen, they need Drew and Jonathan to unlock the full potential of their house and renovate it into the home of their dreams.",
+			"popularity": 16.793,
+			"poster_path": "/j0LRq69y1p0aO7UR0YjDs8U1Pee.jpg",
+			"first_air_date": "2019-05-29",
+			"name": "Property Brothers: Forever Home",
+			"vote_average": 7.7,
+			"vote_count": 15
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/7XQ7mbZW3jbJEznRtqg4pLdqksu.jpg",
+			"genre_ids": [
+				18
+			],
+			"id": 114806,
+			"origin_country": [
+				"CN"
+			],
+			"original_language": "zh",
+			"original_name": "山楂树之恋",
+			"overview": "",
+			"popularity": 5.171,
+			"poster_path": "/aou3JvmbyqWLW4CSbcC1uJP38Th.jpg",
+			"first_air_date": "2012-03-12",
+			"name": "Hawthorn Tree Forever",
+			"vote_average": 8.0,
+			"vote_count": 1
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/2G5gPvdweGZMJ0X6A6oe8Y7ox1Y.jpg",
+			"genre_ids": [
+				18,
+				35
+			],
+			"id": 114670,
+			"origin_country": [
+				"CN"
+			],
+			"original_language": "zh",
+			"original_name": "百岁之好，一言为定",
+			"overview": "A story that follows two people's brave pursuit of love from their campus days to their humble beginnings as they enter the workplace to chase after their dreams together. Xia Linxi's senior year is full of radiance while Jiang Zhenghan's is in peril. Jiang Zhenghan is doing everything he can to earn money and ends up becoming the tutor of a very unwilling Xia Linxi who still hasn't forgotten their terrible first meeting. When the two felt love for the first time, it was sweet and pure. It's the kind of love that you want to profess to the world but it wasn't until after their exams that their feelings became more clear. Just as they wished, Xia Linxi and Jiang Zhenghan are admitted to the same university. From their youth to adulthood, from the school to the workplace, from a school uniform to a wedding dress, they have each other as a lifelong companion.",
+			"popularity": 15.588,
+			"poster_path": "/5pL9XtTPe9qQZdDXS7gAslbMMKI.jpg",
+			"first_air_date": "2020-12-14",
+			"name": "Forever Love",
+			"vote_average": 7.5,
+			"vote_count": 4
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/aVEEwWdGZmphqooLxRDLl2ZhlZo.jpg",
+			"genre_ids": [
+				18
+			],
+			"id": 152552,
+			"origin_country": [
+				"HK"
+			],
+			"original_language": "cn",
+			"original_name": "青春本我",
+			"overview": "High school is the most youthful and passionate time for everyone, and it may also be the most complex period in life.  School life seems carefree, but the teenagers suffer from their own troubles and restlessness. In \"Self Academy\",  Gigi, Chantel, Rock, Yumi, Aska, Windy, and other students have troubles stemming from their family,  relationships,  friendship,  where they also seek self-worth. Ms. Wong, a new counseling psychologist who arrives at the school, hopes to help them courageously face and deal with problems, and promote mental health so that everyone can enjoy the short and beautiful years of high school.",
+			"popularity": 5.419,
+			"poster_path": "/kb7Rm2cekahikgYL5tRiB9hg6y8.jpg",
+			"first_air_date": "2021-12-05",
+			"name": "Forever Young at Heart",
+			"vote_average": 0.0,
+			"vote_count": 0
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/4GE5sB1eZC7aSJIpDrTGtxLZ9Ln.jpg",
+			"genre_ids": [
+				18
+			],
+			"id": 100613,
+			"origin_country": [
+				"JP"
+			],
+			"original_language": "ja",
+			"original_name": "やめるときも、すこやかなるときも",
+			"overview": "Ichiharu Sudo is a furniture craftsman. He is very serious about his craft and becomes immersed in his work, but he has a hard time to create a new work that can surpass that of his teacher. This causes him to go into a slump. Ichiharu Sudo meets Sakurako Motohashi. Sakurako Motohashi works at an advertising company and she isn't very good when it comes to dating. These two people become attracted to each other, but they both carry emotional wounds that they don't talk about.\n\nIchiharu Sudo can't get over the death of a person who was very important to him. For about a week every December, Ichiharu Sudo loses his voice. Meanwhile, Sakurako Motohashi’s father went bankrupt. She has supported her family since that time, but she wants to run away from her situation. Ichiharu Sudo and Sakurako Motohashi begin to date for themselves.",
+			"popularity": 10.032,
+			"poster_path": "/j9zNsGvgSZ4SRlsc6ssRHB94zzW.jpg",
+			"first_air_date": "2020-01-20",
+			"name": "Us Forever",
+			"vote_average": 0.0,
+			"vote_count": 0
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/1dywQHgtM539VEJkXEsiZLyk5Ux.jpg",
+			"genre_ids": [
+				18
+			],
+			"id": 221274,
+			"origin_country": [
+				"CN"
+			],
+			"original_language": "zh",
+			"original_name": "曾少年之小时候",
+			"overview": "This tells the story of three different families living a harmonious life in a traditional Beijing house.",
+			"popularity": 25.642,
+			"poster_path": "/vXZFRmPYHu2wxmGiOQLkbjtxzh4.jpg",
+			"first_air_date": "2023-02-27",
+			"name": "Once and forever：The sun rises",
+			"vote_average": 7.0,
+			"vote_count": 3
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/u7fXXCOrX5w7sEHngUYPMQph06m.jpg",
+			"genre_ids": [
+				18
+			],
+			"id": 90960,
+			"origin_country": [
+				"CN"
+			],
+			"original_language": "zh",
+			"original_name": "永不磨灭的番号",
+			"overview": "",
+			"popularity": 10.569,
+			"poster_path": "/ePBSDvrVW3cgz5b6Mu70CwmBJ6b.jpg",
+			"first_air_date": "2011-01-02",
+			"name": "Forever Designation",
+			"vote_average": 7.0,
+			"vote_count": 1
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/hMZ1TS6OmKNsnoMWCfGyZHM9WBB.jpg",
+			"genre_ids": [
+				18
+			],
+			"id": 86455,
+			"origin_country": [
+				"CN"
+			],
+			"original_language": "zh",
+			"original_name": "将爱情进行到底",
+			"overview": "",
+			"popularity": 7.575,
+			"poster_path": "/A6qd13vpXtx98eNi52ROwbqe055.jpg",
+			"first_air_date": "1998-01-01",
+			"name": "Cherish Our Love Forever",
+			"vote_average": 0.0,
+			"vote_count": 0
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/w5J2D78vKocVGQbmVxNWziY8TvT.jpg",
+			"genre_ids": [
+				18,
+				9648,
+				10765,
+				80
+			],
+			"id": 3743,
+			"origin_country": [
+				"CA",
+				"US"
+			],
+			"original_language": "en",
+			"original_name": "Forever Knight",
+			"overview": "Forever Knight is a Canadian television series about Nick Knight, an 800-year-old vampire working as a police detective in modern day Toronto. Wracked with guilt for centuries of killing others, he seeks redemption by working as a homicide detective on the night shift while struggling to find a way to become human again. The series premiered on May 5, 1992 and concluded with the third season finale on May 17, 1996.",
+			"popularity": 18.798,
+			"poster_path": "/aXlJjgxsorDOCl4cDoWpwN7x0JN.jpg",
+			"first_air_date": "1992-05-05",
+			"name": "Forever Knight",
+			"vote_average": 6.909,
+			"vote_count": 22
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/rj5F9giaXzmqdbmDyOHBAr4GNzj.jpg",
+			"genre_ids": [
+				35
+			],
+			"id": 101237,
+			"origin_country": [
+				"SE"
+			],
+			"original_language": "sv",
+			"original_name": "Falkenberg Forever",
+			"overview": "30-year old Maria still lives with her parents in Falkenberg. She hangs with her friends from the school years and is a substitute teacher at her old high school. According to herself she leads the perfect life - until her ex comes to visit.",
+			"popularity": 2.405,
+			"poster_path": "/thLF2A7kPI1oyjX6lesnr4XnumL.jpg",
+			"first_air_date": "2020-03-30",
+			"name": "Falkenberg Forever",
+			"vote_average": 5.0,
+			"vote_count": 1
+		}
+	],
+	"total_pages": 7,
+	"total_results": 131
+}

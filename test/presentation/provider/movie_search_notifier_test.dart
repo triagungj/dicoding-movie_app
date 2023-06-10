@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dartz/dartz.dart';
 import 'package:ditonton/common/failure.dart';
 import 'package:ditonton/common/state_enum.dart';
@@ -25,14 +27,14 @@ void main() {
       });
   });
 
-  final tMovieModel = Movie(
+  const tMovieModel = Movie(
     adult: false,
     backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
     genreIds: [14, 28],
     id: 557,
     originalTitle: 'Spider-Man',
     overview:
-        'After being bitten by a genetically altered spider, nerdy high school student Peter Parker is endowed with amazing powers to become the Amazing superhero known as Spider-Man.',
+        '''After being bitten by a genetically altered spider, nerdy high school student Peter Parker is endowed with amazing powers to become the Amazing superhero known as Spider-Man.''',
     popularity: 60.441,
     posterPath: '/rweIrveL43TaxUN0akQEaAXL6x0.jpg',
     releaseDate: '2002-05-01',
@@ -42,7 +44,7 @@ void main() {
     voteCount: 13507,
   );
   final tMovieList = <Movie>[tMovieModel];
-  final tQuery = 'spiderman';
+  const tQuery = 'spiderman';
 
   group('search movies', () {
     test('should change state to loading when usecase is called', () async {
@@ -50,9 +52,9 @@ void main() {
       when(mockSearchMovies.execute(tQuery))
           .thenAnswer((_) async => Right(tMovieList));
       // act
-      provider.fetchMovieSearch(tQuery);
+      unawaited(provider.fetchMovieSearch(tQuery));
       // assert
-      expect(provider.state, RequestState.Loading);
+      expect(provider.state, RequestState.loading);
     });
 
     test('should change search result data when data is gotten successfully',
@@ -63,7 +65,7 @@ void main() {
       // act
       await provider.fetchMovieSearch(tQuery);
       // assert
-      expect(provider.state, RequestState.Loaded);
+      expect(provider.state, RequestState.loaded);
       expect(provider.searchResult, tMovieList);
       expect(listenerCallCount, 2);
     });
@@ -71,11 +73,11 @@ void main() {
     test('should return error when data is unsuccessful', () async {
       // arrange
       when(mockSearchMovies.execute(tQuery))
-          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       // act
       await provider.fetchMovieSearch(tQuery);
       // assert
-      expect(provider.state, RequestState.Error);
+      expect(provider.state, RequestState.error);
       expect(provider.message, 'Server Failure');
       expect(listenerCallCount, 2);
     });

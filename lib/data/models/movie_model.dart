@@ -2,7 +2,7 @@ import 'package:ditonton/domain/entities/movie.dart';
 import 'package:equatable/equatable.dart';
 
 class MovieModel extends Equatable {
-  MovieModel({
+  const MovieModel({
     required this.adult,
     required this.backdropPath,
     required this.genreIds,
@@ -18,6 +18,24 @@ class MovieModel extends Equatable {
     required this.voteCount,
   });
 
+  factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
+        adult: json['adult'] as bool,
+        backdropPath: json['backdrop_path'] as String,
+        genreIds: json['genre_ids'] != null
+            ? (json['genre_ids'] as List).map((e) => e as int).toList()
+            : [],
+        id: json['id'] as int,
+        originalTitle: json['original_title'] as String,
+        overview: json['overview'] as String,
+        popularity: json['popularity'] as double,
+        posterPath: json['poster_path'] as String,
+        releaseDate: json['release_date'] as String,
+        title: json['title'] as String,
+        video: json['video'] as bool,
+        voteAverage: json['vote_average'] as double,
+        voteCount: json['vote_count'] as int,
+      );
+
   final bool adult;
   final String? backdropPath;
   final List<int> genreIds;
@@ -32,53 +50,37 @@ class MovieModel extends Equatable {
   final double voteAverage;
   final int voteCount;
 
-  factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
-        adult: json["adult"],
-        backdropPath: json["backdrop_path"],
-        genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
-        id: json["id"],
-        originalTitle: json["original_title"],
-        overview: json["overview"],
-        popularity: json["popularity"].toDouble(),
-        posterPath: json["poster_path"],
-        releaseDate: json["release_date"],
-        title: json["title"],
-        video: json["video"],
-        voteAverage: json["vote_average"].toDouble(),
-        voteCount: json["vote_count"],
-      );
-
   Map<String, dynamic> toJson() => {
-        "adult": adult,
-        "backdrop_path": backdropPath,
-        "genre_ids": List<dynamic>.from(genreIds.map((x) => x)),
-        "id": id,
-        "original_title": originalTitle,
-        "overview": overview,
-        "popularity": popularity,
-        "poster_path": posterPath,
-        "release_date": releaseDate,
-        "title": title,
-        "video": video,
-        "vote_average": voteAverage,
-        "vote_count": voteCount,
+        'adult': adult,
+        'backdrop_path': backdropPath,
+        'genre_ids': List<dynamic>.from(genreIds.map((x) => x)),
+        'id': id,
+        'original_title': originalTitle,
+        'overview': overview,
+        'popularity': popularity,
+        'poster_path': posterPath,
+        'release_date': releaseDate,
+        'title': title,
+        'video': video,
+        'vote_average': voteAverage,
+        'vote_count': voteCount,
       };
 
   Movie toEntity() {
     return Movie(
-      adult: this.adult,
-      backdropPath: this.backdropPath,
-      genreIds: this.genreIds,
-      id: this.id,
-      originalTitle: this.originalTitle,
-      overview: this.overview,
-      popularity: this.popularity,
-      posterPath: this.posterPath,
-      releaseDate: this.releaseDate,
-      title: this.title,
-      video: this.video,
-      voteAverage: this.voteAverage,
-      voteCount: this.voteCount,
+      adult: adult,
+      backdropPath: backdropPath,
+      genreIds: genreIds,
+      id: id,
+      originalTitle: originalTitle,
+      overview: overview,
+      popularity: popularity,
+      posterPath: posterPath,
+      releaseDate: releaseDate,
+      title: title,
+      video: video,
+      voteAverage: voteAverage,
+      voteCount: voteCount,
     );
   }
 

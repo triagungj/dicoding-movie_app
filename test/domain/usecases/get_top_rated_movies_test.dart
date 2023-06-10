@@ -24,6 +24,6 @@ void main() {
     // act
     final result = await usecase.execute();
     // assert
-    expect(result, Right(tMovies));
+    expect(result, Right<dynamic, List<Movie>>(tMovies));
   });
 }
