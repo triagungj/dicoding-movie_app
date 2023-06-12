@@ -1,4 +1,5 @@
 import 'package:ditonton/common/constants.dart';
+import 'package:ditonton/presentation/widgets/app_drawer.dart';
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatelessWidget {
@@ -9,6 +10,11 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const AppDrawer(),
+      appBar: AppBar(
+        backgroundColor: Constants.kPrussianBlue,
+        elevation: 0,
+      ),
       body: Stack(
         children: [
           Column(
@@ -37,12 +43,6 @@ class AboutPage extends StatelessWidget {
               ),
             ],
           ),
-          SafeArea(
-            child: IconButton(
-              onPressed: () => Navigator.pop(context),
-              icon: const Icon(Icons.arrow_back),
-            ),
-          )
         ],
       ),
     );

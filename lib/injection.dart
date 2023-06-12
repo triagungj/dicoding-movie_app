@@ -13,6 +13,7 @@ import 'package:ditonton/domain/usecases/get_watchlist_status.dart';
 import 'package:ditonton/domain/usecases/remove_watchlist.dart';
 import 'package:ditonton/domain/usecases/save_watchlist.dart';
 import 'package:ditonton/domain/usecases/search_movies.dart';
+import 'package:ditonton/presentation/cubit/drawer_cubit.dart';
 import 'package:ditonton/presentation/provider/movie_detail_notifier.dart';
 import 'package:ditonton/presentation/provider/movie_list_notifier.dart';
 import 'package:ditonton/presentation/provider/movie_search_notifier.dart';
@@ -85,7 +86,6 @@ void init() {
     )
 
     // data sources
-
     ..registerLazySingleton<MovieRemoteDataSource>(
       () => MovieRemoteDataSourceImpl(client: locator()),
     )
@@ -94,9 +94,11 @@ void init() {
     )
 
     // helper
-
     ..registerLazySingleton<DatabaseHelper>(DatabaseHelper.new)
 
     // external
-    ..registerLazySingleton(http.Client.new);
+    ..registerLazySingleton(http.Client.new)
+
+    // drawer
+    ..registerLazySingleton(DrawerCubit.new);
 }

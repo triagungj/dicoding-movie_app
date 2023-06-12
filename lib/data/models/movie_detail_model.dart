@@ -5,7 +5,6 @@ import 'package:equatable/equatable.dart';
 class MovieDetailResponse extends Equatable {
   const MovieDetailResponse({
     required this.adult,
-    required this.backdropPath,
     required this.budget,
     required this.genres,
     required this.homepage,
@@ -15,7 +14,6 @@ class MovieDetailResponse extends Equatable {
     required this.originalTitle,
     required this.overview,
     required this.popularity,
-    required this.posterPath,
     required this.releaseDate,
     required this.revenue,
     required this.runtime,
@@ -25,12 +23,14 @@ class MovieDetailResponse extends Equatable {
     required this.video,
     required this.voteAverage,
     required this.voteCount,
+    this.backdropPath,
+    this.posterPath,
   });
 
   factory MovieDetailResponse.fromJson(Map<String, dynamic> json) =>
       MovieDetailResponse(
         adult: json['adult'] as bool,
-        backdropPath: json['backdrop_path'] as String,
+        backdropPath: json['backdrop_path'] as String?,
         budget: json['budget'] as int,
         genres: (json['genres'] as List)
             .map((e) => GenreModel.fromJson(e as Map<String, dynamic>))
@@ -45,7 +45,7 @@ class MovieDetailResponse extends Equatable {
         originalTitle: json['original_title'] as String,
         overview: json['overview'] as String,
         popularity: json['popularity'] as double,
-        posterPath: json['poster_path'] as String,
+        posterPath: json['poster_path'] as String?,
         releaseDate: json['release_date'] as String,
         revenue: json['revenue'] as int,
         runtime: json['runtime'] as int,
@@ -68,7 +68,7 @@ class MovieDetailResponse extends Equatable {
   final String originalTitle;
   final String overview;
   final double popularity;
-  final String posterPath;
+  final String? posterPath;
   final String releaseDate;
   final int revenue;
   final int runtime;

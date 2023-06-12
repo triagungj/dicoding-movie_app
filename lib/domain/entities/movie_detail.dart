@@ -4,17 +4,17 @@ import 'package:equatable/equatable.dart';
 class MovieDetail extends Equatable {
   const MovieDetail({
     required this.adult,
-    required this.backdropPath,
     required this.genres,
     required this.id,
     required this.originalTitle,
     required this.overview,
-    required this.posterPath,
     required this.releaseDate,
     required this.runtime,
     required this.title,
     required this.voteAverage,
     required this.voteCount,
+    this.backdropPath,
+    this.posterPath,
   });
 
   final bool adult;
@@ -23,7 +23,7 @@ class MovieDetail extends Equatable {
   final int id;
   final String originalTitle;
   final String overview;
-  final String posterPath;
+  final String? posterPath;
   final String releaseDate;
   final int runtime;
   final String title;

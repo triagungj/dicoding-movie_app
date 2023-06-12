@@ -3,18 +3,18 @@ import 'package:equatable/equatable.dart';
 class Movie extends Equatable {
   const Movie({
     required this.adult,
-    required this.backdropPath,
     required this.genreIds,
     required this.id,
     required this.originalTitle,
     required this.overview,
     required this.popularity,
-    required this.posterPath,
     required this.releaseDate,
     required this.title,
     required this.video,
     required this.voteAverage,
     required this.voteCount,
+    this.backdropPath,
+    this.posterPath,
   });
 
   const Movie.watchlist({
