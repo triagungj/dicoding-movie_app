@@ -13,7 +13,7 @@ class TvSeriesModel extends Equatable {
     required this.popularity,
     required this.voteAverage,
     required this.voteCount,
-    this.overview,
+    required this.overview,
     this.posterPath,
     this.backdropPath,
   });
@@ -43,7 +43,7 @@ class TvSeriesModel extends Equatable {
       );
   final int id;
   final String name;
-  final String? overview;
+  final String overview;
   final String? posterPath;
   final String firstAirDate;
   final List<int> genreIds;

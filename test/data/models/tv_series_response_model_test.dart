@@ -8,19 +8,19 @@ import '../../json_reader.dart';
 
 void main() {
   const tTvSeriesModel = TvSeriesModel(
-    id: 209265,
-    name: 'Terra e Paixão',
-    overview: '',
-    posterPath: '/voaKRrYExZNkf1E4FZExU7fTd8w.jpg',
+    backdropPath: '/aWPhMZ0P2DyfWB7k5NXhGHSZHGC.jpg',
     firstAirDate: '2023-05-08',
     genreIds: [18, 80, 10766],
+    id: 209265,
+    name: 'Terra e Paixão',
     originCountry: ['BR'],
     originalLanguage: 'pt',
     originalName: 'Terra e Paixão',
+    overview: 'lorem lorem',
     popularity: 2985.435,
+    posterPath: '/voaKRrYExZNkf1E4FZExU7fTd8w.jpg',
     voteAverage: 6.6,
     voteCount: 5,
-    backdropPath: '/aWPhMZ0P2DyfWB7k5NXhGHSZHGC.jpg',
   );
 
   const tTvSeriesResponseModel = TvSeriesResponse(
@@ -59,7 +59,7 @@ void main() {
             'origin_country': ['BR'],
             'original_language': 'pt',
             'original_name': 'Terra e Paixão',
-            'overview': '',
+            'overview': 'lorem lorem',
             'popularity': 2985.435,
             'poster_path': '/voaKRrYExZNkf1E4FZExU7fTd8w.jpg',
             'vote_average': 6.6,
