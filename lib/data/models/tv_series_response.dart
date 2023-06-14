@@ -8,6 +8,7 @@ class TvSeriesResponse extends Equatable {
       TvSeriesResponse(
         tvSeriesList: (json['results'] as List)
             .map((e) => TvSeriesModel.fromJson(e as Map<String, dynamic>))
+            .where((element) => element.overview != '')
             .toList(),
       );
   final List<TvSeriesModel> tvSeriesList;

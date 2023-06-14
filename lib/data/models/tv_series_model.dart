@@ -5,7 +5,6 @@ class TvSeriesModel extends Equatable {
   const TvSeriesModel({
     required this.id,
     required this.name,
-    required this.overview,
     required this.firstAirDate,
     required this.genreIds,
     required this.originCountry,
@@ -14,6 +13,7 @@ class TvSeriesModel extends Equatable {
     required this.popularity,
     required this.voteAverage,
     required this.voteCount,
+    this.overview,
     this.posterPath,
     this.backdropPath,
   });
@@ -43,7 +43,7 @@ class TvSeriesModel extends Equatable {
       );
   final int id;
   final String name;
-  final String overview;
+  final String? overview;
   final String? posterPath;
   final String firstAirDate;
   final List<int> genreIds;

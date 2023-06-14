@@ -1,6 +1,7 @@
 import 'package:ditonton/presentation/cubit/drawer_cubit.dart';
 import 'package:ditonton/presentation/pages/about_page.dart';
 import 'package:ditonton/presentation/pages/home_movie_page.dart';
+import 'package:ditonton/presentation/pages/tv_series_list_page.dart';
 import 'package:ditonton/presentation/pages/watchlist_movies_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -54,7 +55,7 @@ class AppDrawer extends StatelessWidget {
                         .setIndex(1);
                     Navigator.pushReplacementNamed(
                       context,
-                      HomeMoviePage.routeName,
+                      TvSeriesListPage.routeName,
                     );
                   }
                 },
