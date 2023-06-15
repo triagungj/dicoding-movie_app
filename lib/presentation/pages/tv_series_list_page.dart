@@ -2,10 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/tv_series.dart';
-import 'package:ditonton/presentation/pages/search_movie_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_airing_today_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_detail_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_popular_list_page.dart';
+import 'package:ditonton/presentation/pages/tv_series_search_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_top_rated_list_page.dart';
 import 'package:ditonton/presentation/provider/tv_series_list_notifier.dart';
 import 'package:ditonton/presentation/widgets/app_drawer.dart';
@@ -46,7 +46,7 @@ class _TvSeriesListPageState extends State<TvSeriesListPage> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, SearchMoviePage.routeName);
+              Navigator.pushNamed(context, TvSeriesSearchPage.routeName);
             },
             icon: const Icon(Icons.search),
           )
@@ -101,7 +101,7 @@ class _TvSeriesListPageState extends State<TvSeriesListPage> {
                 }
               },
             ),
-             LabelSeeMore(
+            LabelSeeMore(
               title: 'Top Rated',
               onTap: () => Navigator.pushNamed(
                 context,
