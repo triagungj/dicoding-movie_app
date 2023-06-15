@@ -7,7 +7,7 @@ class TvSeriesTable extends Equatable {
     required this.id,
     required this.name,
     required this.overview,
-    required this.posterPath,
+    this.posterPath,
   });
 
   factory TvSeriesTable.fromEntity(TvSeriesDetail tvSeries) => TvSeriesTable(
@@ -26,7 +26,7 @@ class TvSeriesTable extends Equatable {
   final int id;
   final String name;
   final String overview;
-  final String posterPath;
+  final String? posterPath;
 
   Map<String, dynamic> toJson() => {
         'id': id,

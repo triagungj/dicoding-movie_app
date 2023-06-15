@@ -34,6 +34,8 @@ void main() {
     name: 'test',
     overview: 'lorem ipsum',
     firstAirDate: '2023-01-01',
+    posterPath: '/2378u2983239.jpg',
+    backdropPath: '/2378u2983239.jpg',
     genreIds: [12, 15],
     originCountry: ['PH'],
     originalLanguage: 'en',
@@ -47,6 +49,8 @@ void main() {
     name: 'test',
     overview: 'lorem ipsum',
     firstAirDate: '2023-01-01',
+     posterPath: '/2378u2983239.jpg',
+    backdropPath: '/2378u2983239.jpg',
     genreIds: [12, 15],
     originCountry: ['PH'],
     originalLanguage: 'en',
@@ -234,6 +238,7 @@ void main() {
       status: 'Ongoing',
       voteAverage: 9.1,
       voteCount: 230,
+      seasons: [],
     );
     test(
       '''should return remote data when the call to remote data source is successful''',

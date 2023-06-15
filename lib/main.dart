@@ -9,6 +9,7 @@ import 'package:ditonton/presentation/pages/popular_movies_page.dart';
 import 'package:ditonton/presentation/pages/search_movie_page.dart';
 import 'package:ditonton/presentation/pages/top_rated_movies_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_airing_today_page.dart';
+import 'package:ditonton/presentation/pages/tv_series_detail_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_list_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_popular_list_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_top_rated_list_page.dart';
@@ -121,6 +122,12 @@ class MyApp extends StatelessWidget {
             case TvSeriesListPage.routeName:
               return CupertinoPageRoute(
                 builder: (_) => const TvSeriesListPage(),
+              );
+            case TvSeriesDetailPage.routeName:
+              final id = settings.arguments as int?;
+              return CupertinoPageRoute(
+                builder: (_) => TvSeriesDetailPage(id: id!),
+                settings: settings,
               );
             case TvSeriesAiringTodayPage.routeName:
               return CupertinoPageRoute(

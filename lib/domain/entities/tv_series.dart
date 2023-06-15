@@ -4,16 +4,16 @@ class TvSeries extends Equatable {
   const TvSeries({
     required this.id,
     required this.name,
-    required this.firstAirDate,
-    required this.genreIds,
-    required this.originCountry,
-    required this.originalLanguage,
-    required this.originalName,
-    required this.popularity,
-    required this.voteAverage,
-    required this.voteCount,
-    this.overview,
+    required this.overview,
     this.posterPath,
+    this.firstAirDate,
+    this.genreIds,
+    this.originCountry,
+    this.originalLanguage,
+    this.originalName,
+    this.popularity,
+    this.voteAverage,
+    this.voteCount,
     this.backdropPath,
   });
 
@@ -34,7 +34,7 @@ class TvSeries extends Equatable {
   });
   final int id;
   final String name;
-  final String? overview;
+  final String overview;
   final String? posterPath;
   final String? backdropPath;
   final String? firstAirDate;

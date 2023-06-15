@@ -106,6 +106,7 @@ const testTvSeriesDetail = TvSeriesDetail(
   status: 'Ongoing',
   voteAverage: 9.1,
   voteCount: 230,
+  seasons: [],
 );
 
 const testWatchlistTvSeries = TvSeries.watchList(

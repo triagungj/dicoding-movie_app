@@ -16,6 +16,8 @@ class TvSeriesDetailNotifier extends ChangeNotifier {
     required this.saveWatchlistTv,
     required this.removeWatchlistTv,
   });
+  static const watchlistAddSuccessMessage = 'Added to Watchlist';
+  static const watchlistRemoveSuccessMessage = 'Removed from Watchlist';
 
   final GetTvDetail getTvDetail;
   final GetTvRecommendations getTvRecommendations;
