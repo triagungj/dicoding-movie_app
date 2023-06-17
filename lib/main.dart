@@ -14,7 +14,7 @@ import 'package:ditonton/presentation/pages/tv_series_list_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_popular_list_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_search_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_top_rated_list_page.dart';
-import 'package:ditonton/presentation/pages/watchlist_movies_page.dart';
+import 'package:ditonton/presentation/pages/watchlist_page.dart';
 import 'package:ditonton/presentation/provider/movie_detail_notifier.dart';
 import 'package:ditonton/presentation/provider/movie_list_notifier.dart';
 import 'package:ditonton/presentation/provider/movie_search_notifier.dart';
@@ -146,9 +146,9 @@ class MyApp extends StatelessWidget {
               return CupertinoPageRoute(
                 builder: (_) => const TvSeriesTopRatedListPage(),
               );
-            case WatchlistMoviesPage.routeName:
+            case WatchlistPage.routeName:
               return CupertinoPageRoute(
-                builder: (_) => const WatchlistMoviesPage(),
+                builder: (_) => const WatchlistPage(),
               );
             case AboutPage.routeName:
               return CupertinoPageRoute(builder: (_) => const AboutPage());
