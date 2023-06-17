@@ -86,14 +86,21 @@ class WatchlistPageState extends State<WatchlistPage> with RouteAware {
             child: CircularProgressIndicator(),
           );
         } else if (data.watchlistState == RequestState.loaded) {
-          return ListView.builder(
-            shrinkWrap: true,
-            itemBuilder: (context, index) {
-              final movie = data.watchlistMovies[index];
-              return MovieCard(movie);
-            },
-            itemCount: data.watchlistMovies.length,
-          );
+          return data.watchlistMovies.isNotEmpty
+              ? ListView.builder(
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    final movie = data.watchlistMovies[index];
+                    return MovieCard(movie);
+                  },
+                  itemCount: data.watchlistMovies.length,
+                )
+              : SizedBox(
+                  height: MediaQuery.of(context).size.height / 2,
+                  child: const Center(
+                    child: Text('Your Watchlist Movies is empty'),
+                  ),
+                );
         } else {
           return Center(
             key: const Key('error_message'),
@@ -112,14 +119,21 @@ class WatchlistPageState extends State<WatchlistPage> with RouteAware {
             child: CircularProgressIndicator(),
           );
         } else if (data.state == RequestState.loaded) {
-          return ListView.builder(
-            shrinkWrap: true,
-            itemBuilder: (context, index) {
-              final tvSeries = data.listWatchlistTv[index];
-              return TvSeriesCard(tvSeries: tvSeries);
-            },
-            itemCount: data.listWatchlistTv.length,
-          );
+          return data.listWatchlistTv.isNotEmpty
+              ? ListView.builder(
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    final tvSeries = data.listWatchlistTv[index];
+                    return TvSeriesCard(tvSeries: tvSeries);
+                  },
+                  itemCount: data.listWatchlistTv.length,
+                )
+              : SizedBox(
+                  height: MediaQuery.of(context).size.height / 2,
+                  child: const Center(
+                    child: Text('Your Watchlist Tv Series is empty'),
+                  ),
+                );
         } else {
           return Center(
             key: const Key('error_message'),
