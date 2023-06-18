@@ -63,15 +63,18 @@ class WatchlistPageState extends State<WatchlistPage> with RouteAware {
       body: ValueListenableBuilder<bool>(
         valueListenable: isMovie,
         builder: (context, value, _) {
-          return Column(
-            children: [
-              const SizedBox(height: 10),
-              watchlistButton(context),
-              Padding(
-                padding: const EdgeInsets.all(8),
-                child: isMovie.value ? watchlistMovie() : watchlistTvSeries(),
-              ),
-            ],
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+                const SizedBox(height: 10),
+                watchlistButton(context),
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: isMovie.value ? watchlistMovie() : watchlistTvSeries(),
+                ),
+                const SizedBox(height: 50),
+              ],
+            ),
           );
         },
       ),
