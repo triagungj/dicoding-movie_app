@@ -89,14 +89,13 @@ class WatchlistPageState extends State<WatchlistPage> with RouteAware {
             child: CircularProgressIndicator(),
           );
         } else if (data.watchlistState == RequestState.loaded) {
-          return data.watchlistMovies.isNotEmpty
-              ? ListView.builder(
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    final movie = data.watchlistMovies[index];
-                    return MovieCard(movie);
-                  },
-                  itemCount: data.watchlistMovies.length,
+          final movies = data.watchlistMovies;
+          return movies.isNotEmpty
+              ? Column(
+                  children: List.generate(
+                    movies.length,
+                    (index) => MovieCard(movies[index]),
+                  ),
                 )
               : SizedBox(
                   height: MediaQuery.of(context).size.height / 2,
@@ -122,14 +121,13 @@ class WatchlistPageState extends State<WatchlistPage> with RouteAware {
             child: CircularProgressIndicator(),
           );
         } else if (data.state == RequestState.loaded) {
-          return data.listWatchlistTv.isNotEmpty
-              ? ListView.builder(
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    final tvSeries = data.listWatchlistTv[index];
-                    return TvSeriesCard(tvSeries: tvSeries);
-                  },
-                  itemCount: data.listWatchlistTv.length,
+          final listTvSeries = data.listWatchlistTv;
+          return listTvSeries.isNotEmpty
+              ? Column(
+                  children: List.generate(
+                    listTvSeries.length,
+                    (index) => TvSeriesCard(tvSeries: listTvSeries[index]),
+                  ),
                 )
               : SizedBox(
                   height: MediaQuery.of(context).size.height / 2,
