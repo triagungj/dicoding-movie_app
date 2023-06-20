@@ -39,11 +39,9 @@ class TvSeriesModel extends Equatable {
         popularity: json['popularity'] as double?,
         posterPath: json['poster_path'] as String?,
         voteAverage: json['vote_average'] != null
-            ? json['vote_average'] is String
-                ? double.parse(json['vote_average'] as String)
-                : json['vote_average'] is int
-                    ? (json['vote_average'] as int).toDouble()
-                    : json['vote_average'] as double
+            ? json['vote_average'] is int
+                ? (json['vote_average'] as int).toDouble()
+                : json['vote_average'] as double
             : null,
         voteCount: json['vote_count'] as int?,
       );

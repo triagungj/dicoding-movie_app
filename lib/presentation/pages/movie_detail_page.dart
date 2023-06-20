@@ -50,7 +50,10 @@ class MovieDetailPageState extends State<MovieDetailPage> {
               ),
             );
           } else {
-            return Text(provider.message);
+            return Text(
+              provider.message,
+              key: const Key('textErrorWidget'),
+            );
           }
         },
       ),
@@ -85,6 +88,7 @@ class DetailContent extends StatelessWidget {
           )
         else
           Container(
+            key: const Key('containerPoster'),
             padding: const EdgeInsets.only(top: 20),
             width: screenWidth,
             child: Icon(
@@ -161,20 +165,20 @@ class DetailContent extends StatelessWidget {
                             Consumer<MovieDetailNotifier>(
                               builder: (context, data, child) {
                                 if (data.recommendationState ==
-                                    RequestState.loading) {
-                                  return const Center(
-                                    child: CircularProgressIndicator(),
-                                  );
-                                } else if (data.recommendationState ==
                                     RequestState.error) {
-                                  return Text(data.message);
+                                  return Text(
+                                    data.message,
+                                    key: const Key('textRecommendationError'),
+                                  );
                                 } else if (data.recommendationState ==
                                     RequestState.loaded) {
                                   return ListRecommendationsWidget(
                                     recommendations: recommendations,
                                   );
                                 } else {
-                                  return Container();
+                                  return const Center(
+                                    child: CircularProgressIndicator(),
+                                  );
                                 }
                               },
                             ),
@@ -258,6 +262,7 @@ class ListRecommendationsWidget extends StatelessWidget {
         itemBuilder: (context, index) {
           final movie = recommendations[index];
           return Padding(
+            key: const Key('recommendationCard'),
             padding: const EdgeInsets.all(4),
             child: InkWell(
               onTap: () {
