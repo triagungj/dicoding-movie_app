@@ -248,7 +248,7 @@ void main() {
   });
 
   group('on Error', () {
-    test('should return error when data is unsuccessful', () async {
+    test('should return error when load detail is unsuccessful', () async {
       // arrange
       when(mockGetTvDetail.execute(testId)).thenAnswer(
         (_) async => const Left(ServerFailure('Failure')),
@@ -264,6 +264,38 @@ void main() {
       // expect(notifier.tvSeriesRecommendationsState, RequestState.error);
       expect(notifier.message, 'Failure');
       expect(listenerCallCount, 2);
+    });
+
+    test('should return error when add data is unsuccessful', () async {
+      // arrange
+      when(mockSaveWatchlistTv.execute(testTvSeriesDetail)).thenAnswer(
+        (_) async => const Left(DatabaseFailure('Failure')),
+      );
+      when(mockGetWatchlistStatusTv.execute(testTvSeriesDetail.id)).thenAnswer(
+        (realInvocation) async => false,
+      );
+      // act
+      await notifier.addWatchlist(testTvSeriesDetail);
+
+      // assert
+      expect(notifier.tvSeriesDetailState, RequestState.empty);
+      expect(listenerCallCount, 1);
+    });
+
+    test('should return error when remove data is unsuccessful', () async {
+      // arrange
+      when(mockRemoveWatchlistTv.execute(testTvSeriesDetail)).thenAnswer(
+        (_) async => const Left(DatabaseFailure('Failure')),
+      );
+      when(mockGetWatchlistStatusTv.execute(testTvSeriesDetail.id)).thenAnswer(
+        (realInvocation) async => false,
+      );
+      // act
+      await notifier.removeWatchlist(testTvSeriesDetail);
+
+      // assert
+      expect(notifier.tvSeriesDetailState, RequestState.empty);
+      expect(listenerCallCount, 1);
     });
   });
 }

@@ -3,8 +3,6 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:ditonton/common/exception.dart';
 import 'package:ditonton/common/failure.dart';
-import 'package:ditonton/data/models/genre_model.dart';
-import 'package:ditonton/data/models/tv_series_detail_response.dart';
 import 'package:ditonton/data/models/tv_series_model.dart';
 import 'package:ditonton/data/repositories/tv_series_repository_impl.dart';
 import 'package:ditonton/domain/entities/tv_series.dart';
@@ -49,7 +47,7 @@ void main() {
     name: 'test',
     overview: 'lorem ipsum',
     firstAirDate: '2023-01-01',
-     posterPath: '/2378u2983239.jpg',
+    posterPath: '/2378u2983239.jpg',
     backdropPath: '/2378u2983239.jpg',
     genreIds: [12, 15],
     originCountry: ['PH'],
@@ -223,29 +221,13 @@ void main() {
 
   group('Tv Series detail', () {
     const tvId = 1;
-    const tvSeriesDetailResponse = TvSeriesDetailResponse(
-      id: 1,
-      adult: true,
-      backdropPath: '/32eu9d2dd.jpg',
-      firstAirDate: '2023-01-01',
-      genres: [GenreModel(id: 1, name: 'Action')],
-      lastAirDate: '2023-04-01',
-      name: 'Forever',
-      numberOfEpisodes: 12,
-      numberOfSeasons: 2,
-      overview: 'Lorem ipsum',
-      posterPath: '/2837289.jpg',
-      status: 'Ongoing',
-      voteAverage: 9.1,
-      voteCount: 230,
-      seasons: [],
-    );
+
     test(
       '''should return remote data when the call to remote data source is successful''',
       () async {
         // arrange
         when(mockRemoteDataSource.getTvSeriesDetail(tvId)).thenAnswer(
-          (_) async => tvSeriesDetailResponse,
+          (_) async => testTvSeriesDetailModel,
         );
 
         // act
@@ -479,6 +461,20 @@ void main() {
       // assert
       final resultList = result.getOrElse(() => []);
       expect(resultList, [testWatchlistTvSeries]);
+    });
+    test('should return failure if list is fail to loaded', () async {
+      // arrange
+      when(mockLocalDataSource.getWatchlistTvSeries())
+          .thenThrow(DatabaseException('Error'));
+
+      // act
+      final result = await repository.getWatchlistTvSeries();
+      // assert
+      verify(mockLocalDataSource.getWatchlistTvSeries());
+      expect(
+        result,
+        equals(const Left<Failure, dynamic>(DatabaseFailure('Error'))),
+      );
     });
   });
 }

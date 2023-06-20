@@ -2,12 +2,14 @@ import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/presentation/pages/top_rated_movies_page.dart';
 import 'package:ditonton/presentation/provider/top_rated_movies_notifier.dart';
+import 'package:ditonton/presentation/widgets/movie_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
 
+import '../../dummy_data/dummy_objects.dart';
 import 'top_rated_movies_page_test.mocks.dart';
 
 @GenerateMocks([TopRatedMoviesNotifier])
@@ -50,6 +52,18 @@ void main() {
     await tester.pumpWidget(makeTestableWidget(const TopRatedMoviesPage()));
 
     expect(listViewFinder, findsOneWidget);
+  });
+
+  testWidgets('Page should display some Movie Card when data is not empty',
+      (WidgetTester tester) async {
+    when(mockNotifier.state).thenReturn(RequestState.loaded);
+    when(mockNotifier.movies).thenReturn(<Movie>[testMovie]);
+
+    final cardFinder = find.byType(MovieCard);
+
+    await tester.pumpWidget(makeTestableWidget(const TopRatedMoviesPage()));
+
+    expect(cardFinder, findsOneWidget);
   });
 
   testWidgets('Page should display text with message when Error',

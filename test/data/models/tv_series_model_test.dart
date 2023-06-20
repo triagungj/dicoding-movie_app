@@ -39,4 +39,8 @@ void main() {
     final result = tTvSeriesModel.toEntity();
     expect(result, tTvSeries);
   });
+  test('should convert from map', () async {
+    final result = tTvSeriesModel.toEntity();
+    expect(result, tTvSeries);
+  });
 }

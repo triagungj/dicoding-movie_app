@@ -103,6 +103,19 @@ void main() {
       // assert
       expect(result, null);
     });
+
+    test('should return error when get data is unsuccessful', () async {
+      // arrange
+      when(mockDatabaseHelper.getTvSeriesById(tvId)).thenThrow(
+        DatabaseException('Error'),
+      );
+
+      // act
+      final call = dataSource.getTvSeriesById(tvId);
+
+      // assert
+      expect(() => call, throwsA(isA<DatabaseException>()));
+    });
   });
 
   group('get watchlist tv series', () {

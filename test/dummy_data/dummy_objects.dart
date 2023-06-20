@@ -1,8 +1,12 @@
+import 'package:ditonton/data/models/genre_model.dart';
 import 'package:ditonton/data/models/movie_table.dart';
+import 'package:ditonton/data/models/season_model.dart';
+import 'package:ditonton/data/models/tv_series_detail_response.dart';
 import 'package:ditonton/data/models/tv_series_table.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
+import 'package:ditonton/domain/entities/season.dart';
 import 'package:ditonton/domain/entities/tv_series.dart';
 import 'package:ditonton/domain/entities/tv_series_detail.dart';
 
@@ -91,6 +95,39 @@ final testTvSeriesMap = {
   'posterPath': '/2837289.jpg',
 };
 
+const testTvSeriesSeasonModel = SeasonModel(
+  id: 123,
+  name: 'Season 1',
+  overview: 'lorem ipsum',
+  seasonNumber: 1,
+  episodeCount: 69,
+);
+const testTvSeriesSeason = Season(
+  id: 123,
+  name: 'Season 1',
+  overview: 'lorem ipsum',
+  seasonNumber: 1,
+  episodeCount: 69,
+);
+
+const testTvSeriesDetailModel = TvSeriesDetailResponse(
+  id: 1,
+  adult: true,
+  backdropPath: '/32eu9d2dd.jpg',
+  firstAirDate: '2023-01-01',
+  genres: [GenreModel(id: 1, name: 'Action')],
+  lastAirDate: '2023-04-01',
+  name: 'Forever',
+  numberOfEpisodes: 12,
+  numberOfSeasons: 2,
+  overview: 'Lorem ipsum',
+  posterPath: '/2837289.jpg',
+  status: 'Ongoing',
+  voteAverage: 9.1,
+  voteCount: 230,
+  seasons: [testTvSeriesSeasonModel],
+);
+
 const testTvSeriesDetail = TvSeriesDetail(
   id: 1,
   adult: true,
@@ -106,7 +143,7 @@ const testTvSeriesDetail = TvSeriesDetail(
   status: 'Ongoing',
   voteAverage: 9.1,
   voteCount: 230,
-  seasons: [],
+  seasons: [testTvSeriesSeason],
 );
 
 const testWatchlistTvSeries = TvSeries.watchList(

@@ -219,7 +219,7 @@ void main() {
   });
 
   group('on Error', () {
-    test('should return error when data is unsuccessful', () async {
+    test('should return error when get data is unsuccessful', () async {
       // arrange
       when(mockGetMovieDetail.execute(tId))
           .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
@@ -231,6 +231,31 @@ void main() {
       expect(provider.movieState, RequestState.error);
       expect(provider.message, 'Server Failure');
       expect(listenerCallCount, 2);
+    });
+
+    test('should return error when save data is unsuccessful', () async {
+      // arrange
+      when(mockSaveWatchlist.execute(testMovieDetail))
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
+      when(mockGetWatchlistStatus.execute(testMovieDetail.id))
+          .thenAnswer((_) async => false);
+      // act
+      await provider.addWatchlist(testMovieDetail);
+      // assert
+      expect(provider.movieState, RequestState.empty);
+      expect(listenerCallCount, 1);
+    });
+    test('should return error when remove data is unsuccessful', () async {
+      // arrange
+      when(mockRemoveWatchlist.execute(testMovieDetail))
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
+      when(mockGetWatchlistStatus.execute(testMovieDetail.id))
+          .thenAnswer((_) async => false);
+      // act
+      await provider.removeFromWatchlist(testMovieDetail);
+      // assert
+      expect(provider.movieState, RequestState.empty);
+      expect(listenerCallCount, 1);
     });
   });
 }
