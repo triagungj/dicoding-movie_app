@@ -1,5 +1,5 @@
+import 'package:dependencies/equatable/equatable.dart';
 import 'package:ditonton/domain/entities/season.dart';
-import 'package:equatable/equatable.dart';
 
 class SeasonModel extends Equatable {
   const SeasonModel({

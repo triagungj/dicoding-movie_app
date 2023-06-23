@@ -1,8 +1,8 @@
+import 'package:dependencies/provider/provider.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/presentation/provider/tv_series_popular_notifier.dart';
 import 'package:ditonton/presentation/widgets/tv_series_card.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class TvSeriesPopularListPage extends StatefulWidget {
   const TvSeriesPopularListPage({super.key});

@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+import 'package:dependencies/equatable/equatable.dart';
 
 abstract class Failure extends Equatable {
   const Failure(this.message);

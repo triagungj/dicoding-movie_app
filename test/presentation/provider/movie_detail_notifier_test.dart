@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+import 'package:dependencies/dartz/dartz.dart';
 import 'package:ditonton/common/failure.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/movie.dart';

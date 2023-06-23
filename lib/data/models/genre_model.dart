@@ -1,5 +1,5 @@
+import 'package:dependencies/equatable/equatable.dart';
 import 'package:ditonton/domain/entities/genre.dart';
-import 'package:equatable/equatable.dart';
 
 class GenreModel extends Equatable {
   const GenreModel({

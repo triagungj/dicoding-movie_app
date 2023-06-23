@@ -1,7 +1,7 @@
+import 'package:dependencies/sqflite_common_ffi/sqflite_common_ffi.dart';
 import 'package:ditonton/data/datasources/db/database_helper.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 import '../../../dummy_data/dummy_objects.dart';
 import '../../../helpers/test_helper.mocks.dart';

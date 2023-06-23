@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+import 'package:dependencies/dartz/dartz.dart';
 import 'package:ditonton/domain/entities/tv_series.dart';
 import 'package:ditonton/domain/usecases/get_tv_top_rated.dart';
 import 'package:flutter_test/flutter_test.dart';

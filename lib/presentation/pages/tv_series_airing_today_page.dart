@@ -1,8 +1,8 @@
+import 'package:dependencies/provider/provider.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/presentation/provider/tv_series_airing_today_notifier.dart';
 import 'package:ditonton/presentation/widgets/tv_series_card.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class TvSeriesAiringTodayPage extends StatefulWidget {
   const TvSeriesAiringTodayPage({super.key});

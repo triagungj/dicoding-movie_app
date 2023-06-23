@@ -1,6 +1,6 @@
+import 'package:dependencies/equatable/equatable.dart';
 import 'package:ditonton/domain/entities/tv_series.dart';
 import 'package:ditonton/domain/entities/tv_series_detail.dart';
-import 'package:equatable/equatable.dart';
 
 class TvSeriesTable extends Equatable {
   const TvSeriesTable({

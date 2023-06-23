@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+import 'package:dependencies/equatable/equatable.dart';
 
 class Genre extends Equatable {
   const Genre({

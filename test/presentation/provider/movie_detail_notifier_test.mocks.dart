@@ -7,7 +7,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i5;
 
-import 'package:dartz/dartz.dart' as _i3;
+import 'package:dependencies/dartz/dartz.dart' as _i3;
 import 'package:ditonton/common/failure.dart' as _i6;
 import 'package:ditonton/domain/entities/movie.dart' as _i9;
 import 'package:ditonton/domain/entities/movie_detail.dart' as _i7;

@@ -9,7 +9,9 @@ import 'dart:async' as _i8;
 import 'dart:convert' as _i24;
 import 'dart:typed_data' as _i25;
 
-import 'package:dartz/dartz.dart' as _i2;
+import 'package:dependencies/dartz/dartz.dart' as _i2;
+import 'package:dependencies/http/http.dart' as _i6;
+import 'package:dependencies/sqflite/sqflite.dart' as _i5;
 import 'package:ditonton/common/failure.dart' as _i9;
 import 'package:ditonton/data/datasources/db/database_helper.dart' as _i23;
 import 'package:ditonton/data/datasources/movie_local_data_source.dart' as _i14;
@@ -31,9 +33,7 @@ import 'package:ditonton/domain/entities/tv_series.dart' as _i17;
 import 'package:ditonton/domain/entities/tv_series_detail.dart' as _i18;
 import 'package:ditonton/domain/repositories/movie_repository.dart' as _i7;
 import 'package:ditonton/domain/repositories/tv_series_repository.dart' as _i16;
-import 'package:http/http.dart' as _i6;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:sqflite/sqflite.dart' as _i5;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values

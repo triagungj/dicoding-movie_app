@@ -1,5 +1,5 @@
+import 'package:dependencies/equatable/equatable.dart';
 import 'package:ditonton/data/models/tv_series_model.dart';
-import 'package:equatable/equatable.dart';
 
 class TvSeriesResponse extends Equatable {
   const TvSeriesResponse({required this.tvSeriesList});

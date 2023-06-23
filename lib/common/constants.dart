@@ -1,5 +1,5 @@
+import 'package:dependencies/google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Constants {
   static const baseImageUrl = 'https://image.tmdb.org/t/p/w500';

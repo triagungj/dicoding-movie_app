@@ -1,3 +1,5 @@
+import 'package:dependencies/get_it/get_it.dart';
+import 'package:dependencies/http/http.dart' as http;
 import 'package:ditonton/data/datasources/db/database_helper.dart';
 import 'package:ditonton/data/datasources/movie_local_data_source.dart';
 import 'package:ditonton/data/datasources/movie_remote_data_source.dart';
@@ -41,8 +43,6 @@ import 'package:ditonton/presentation/provider/tv_series_search_notifier.dart';
 import 'package:ditonton/presentation/provider/tv_series_top_rated_notifier.dart';
 import 'package:ditonton/presentation/provider/watchlist_movie_notifier.dart';
 import 'package:ditonton/presentation/provider/watchlist_tv_series_notifier.dart';
-import 'package:get_it/get_it.dart';
-import 'package:http/http.dart' as http;
 
 final locator = GetIt.instance;
 

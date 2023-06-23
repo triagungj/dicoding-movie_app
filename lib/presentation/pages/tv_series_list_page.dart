@@ -1,4 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dependencies/cached_network_image/cached_network_image.dart';
+import 'package:dependencies/provider/provider.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/tv_series.dart';
@@ -11,7 +12,6 @@ import 'package:ditonton/presentation/provider/tv_series_list_notifier.dart';
 import 'package:ditonton/presentation/widgets/app_drawer.dart';
 import 'package:ditonton/presentation/widgets/label_see_more.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class TvSeriesListPage extends StatefulWidget {
   const TvSeriesListPage({super.key});
