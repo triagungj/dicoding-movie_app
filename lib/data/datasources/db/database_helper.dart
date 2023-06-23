@@ -30,14 +30,16 @@ class DatabaseHelper {
   }
 
   Future<void> _onCreate(Database db, int version) async {
-    return db.execute('''
+    await db.execute('''
       CREATE TABLE  $_tblWatchlistMovie (
         id INTEGER PRIMARY KEY,
         title TEXT,
         overview TEXT,
         posterPath TEXT
       );
+    ''');
 
+    await db.execute('''
       CREATE TABLE  $_tblWatchlistTvSeries (
         id INTEGER PRIMARY KEY,
         name TEXT,
