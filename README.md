@@ -2,19 +2,23 @@
 
 ---
 
+[![Codemagic build status](https://api.codemagic.io/apps/6495e63bd062fbd108096fb1/6495e63bd062fbd108096fb0/status_badge.svg)](https://codemagic.io/apps/<app-id>/<workflow-id>/latest_build)
+
 ## How To
 
-Project ini mengimplementasikan modularisasi, dimana didalamnya terdapat beberapa package yang dikembangkan secara terpisah. Pada project ini disarankan menggunakan dev_depencies:melos supaya lebih mudah untuk melakukan Get Packages di setiap package nya. 
+Project ini mengimplementasikan modularisasi, dimana didalamnya terdapat beberapa package yang dikembangkan secara terpisah. Pada project ini disarankan menggunakan dev_depencies:melos supaya lebih mudah untuk melakukan Get Packages di setiap package nya.
+
 ### 1. Aktifkan Melos Global
-       Aktifkan terlebih dahulu package dev_dependencies:melos secara global. Jika sebelumnya sudah mengaktifkannya maka dapat melanjutkan langkah ke-2.
+
+Aktifkan terlebih dahulu package dev_dependencies:melos secara global. Jika sebelumnya sudah mengaktifkannya maka dapat melanjutkan langkah ke-2.
 
 ```sh
 dart pub global activate melos
 ```
 
 ### 2. Jalankan melos bootstrap
-       Untuk melakukan Get Packages di setiap packages nya, jalankan command dibawah ini:
-       
+
+Untuk melakukan Get Packages di setiap packages nya, jalankan command dibawah ini:
 
 ```sh
 melos bootstrap
@@ -40,9 +44,7 @@ brew install lcov
 ```
 
 - Bagi pengguna **Windows**, ikuti langkah berikut.
-
 - Install [Chocolatey](https://chocolatey.org/install) pada komputermu.
-
 - Setelah berhasil, install [lcov](https://community.chocolatey.org/packages/lcov) dengan menjalankan perintah berikut.
 
 ```sh
