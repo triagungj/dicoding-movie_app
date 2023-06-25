@@ -1,7 +1,8 @@
+import 'package:dependencies/flutter_bloc/flutter_bloc.dart';
 import 'package:dependencies/provider/provider.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/common/utils.dart';
-import 'package:ditonton/presentation/provider/watchlist_movie_notifier.dart';
+import 'package:ditonton/presentation/bloc/movie_watchlist_load/movie_watchlist_load_bloc.dart';
 import 'package:ditonton/presentation/provider/watchlist_tv_series_notifier.dart';
 import 'package:ditonton/presentation/widgets/app_drawer.dart';
 import 'package:ditonton/presentation/widgets/movie_card_list.dart';
@@ -24,8 +25,8 @@ class WatchlistPageState extends State<WatchlistPage> with RouteAware {
     Future.microtask(
       () {
         if (isMovie.value) {
-          Provider.of<WatchlistMovieNotifier>(context, listen: false)
-              .fetchWatchlistMovies();
+          Provider.of<MovieWatchlistLoadBloc>(context, listen: false)
+              .add(GetMovieWatchlistLoadEvent());
         } else {
           Provider.of<WatchlistTvSeriesNotifier>(context, listen: false)
               .fetchWatchlistTv();
@@ -81,15 +82,16 @@ class WatchlistPageState extends State<WatchlistPage> with RouteAware {
     );
   }
 
-  Consumer<WatchlistMovieNotifier> watchlistMovie() {
-    return Consumer<WatchlistMovieNotifier>(
-      builder: (context, data, child) {
-        if (data.watchlistState == RequestState.loading) {
+  BlocBuilder<MovieWatchlistLoadBloc, MovieWatchlistLoadState>
+      watchlistMovie() {
+    return BlocBuilder<MovieWatchlistLoadBloc, MovieWatchlistLoadState>(
+      builder: (context, state) {
+        if (state is MovieWatchlistLoadLoading) {
           return const Center(
             child: CircularProgressIndicator(),
           );
-        } else if (data.watchlistState == RequestState.loaded) {
-          final movies = data.watchlistMovies;
+        } else if (state is MovieWatchlistLoadSuccess) {
+          final movies = state.results;
           return movies.isNotEmpty
               ? Column(
                   children: List.generate(
@@ -103,11 +105,13 @@ class WatchlistPageState extends State<WatchlistPage> with RouteAware {
                     child: Text('Your Watchlist Movies is empty'),
                   ),
                 );
-        } else {
+        } else if (state is MovieWatchlistLoadFailure) {
           return Center(
             key: const Key('error_message'),
-            child: Text(data.message),
+            child: Text(state.message),
           );
+        } else {
+          return const SizedBox();
         }
       },
     );

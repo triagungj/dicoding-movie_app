@@ -1,7 +1,7 @@
+import 'package:dependencies/flutter_bloc/flutter_bloc.dart';
 import 'package:dependencies/provider/provider.dart';
 import 'package:ditonton/common/constants.dart';
-import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/presentation/provider/movie_search_notifier.dart';
+import 'package:ditonton/presentation/bloc/movies_search/movies_search_bloc.dart';
 import 'package:ditonton/presentation/widgets/movie_card_list.dart';
 import 'package:flutter/material.dart';
 
@@ -23,8 +23,8 @@ class SearchMoviePage extends StatelessWidget {
           children: [
             TextField(
               onSubmitted: (query) {
-                Provider.of<MovieSearchNotifier>(context, listen: false)
-                    .fetchMovieSearch(query);
+                Provider.of<MoviesSearchBloc>(context, listen: false)
+                    .add(GetMoviesSearchEvent(query));
               },
               decoration: const InputDecoration(
                 hintText: 'Search title',
@@ -38,23 +38,29 @@ class SearchMoviePage extends StatelessWidget {
               'Search Result',
               style: Constants.kHeading6,
             ),
-            Consumer<MovieSearchNotifier>(
-              builder: (context, data, child) {
-                if (data.state == RequestState.loading) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else if (data.state == RequestState.loaded) {
-                  final result = data.searchResult;
-                  return Expanded(
-                    child: ListView.builder(
-                      padding: const EdgeInsets.all(8),
-                      itemBuilder: (context, index) {
-                        final movie = data.searchResult[index];
-                        return MovieCard(movie);
-                      },
-                      itemCount: result.length,
+            BlocBuilder<MoviesSearchBloc, MoviesSearchState>(
+              builder: (context, state) {
+                if (state is MoviesSearchLoading) {
+                  return const Expanded(
+                    child: Center(
+                      child: CircularProgressIndicator(),
                     ),
+                  );
+                } else if (state is MoviesSearchSuccess) {
+                  final result = state.result;
+                  return Expanded(
+                    child: result.isNotEmpty
+                        ? ListView.builder(
+                            padding: const EdgeInsets.all(8),
+                            itemBuilder: (context, index) {
+                              final movie = result[index];
+                              return MovieCard(movie);
+                            },
+                            itemCount: result.length,
+                          )
+                        : const Center(
+                            child: Text('Result is empty'),
+                          ),
                   );
                 } else {
                   return Expanded(
