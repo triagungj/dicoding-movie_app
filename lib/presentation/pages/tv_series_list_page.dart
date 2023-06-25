@@ -1,14 +1,16 @@
 import 'package:dependencies/cached_network_image/cached_network_image.dart';
+import 'package:dependencies/flutter_bloc/flutter_bloc.dart';
 import 'package:dependencies/provider/provider.dart';
 import 'package:ditonton/common/constants.dart';
-import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/tv_series.dart';
+import 'package:ditonton/presentation/bloc/tv_series_airing_today/tv_series_airing_today_bloc.dart';
+import 'package:ditonton/presentation/bloc/tv_series_popular/tv_series_popular_bloc.dart';
+import 'package:ditonton/presentation/bloc/tv_series_top_rated/tv_series_top_rated_bloc.dart';
 import 'package:ditonton/presentation/pages/tv_series_airing_today_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_detail_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_popular_list_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_search_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_top_rated_list_page.dart';
-import 'package:ditonton/presentation/provider/tv_series_list_notifier.dart';
 import 'package:ditonton/presentation/widgets/app_drawer.dart';
 import 'package:ditonton/presentation/widgets/label_see_more.dart';
 import 'package:flutter/material.dart';
@@ -24,12 +26,14 @@ class TvSeriesListPage extends StatefulWidget {
 
 class _TvSeriesListPageState extends State<TvSeriesListPage> {
   void refresh() {
-    Future.microtask(
-      () => Provider.of<TvSeriesListNotifier>(context, listen: false)
-        ..getAiringTodayTv()
-        ..getPopularTv()
-        ..getTopRatedTv(),
-    );
+    Future.microtask(() {
+      Provider.of<TvSeriesAiringTodayBloc>(context, listen: false)
+          .add(GetTvSeriesAiringTodayEvent());
+      Provider.of<TvSeriesPopularBloc>(context, listen: false)
+          .add(GetTvSeriesPopularEvent());
+      Provider.of<TvSeriesTopRatedBloc>(context, listen: false)
+          .add(GetTvSeriesTopRatedEvent());
+    });
   }
 
   @override
@@ -66,18 +70,18 @@ class _TvSeriesListPageState extends State<TvSeriesListPage> {
                 TvSeriesAiringTodayPage.routeName,
               ),
             ),
-            Consumer<TvSeriesListNotifier>(
-              builder: (context, data, child) {
-                final state = data.airingTodayTvState;
-                if (state == RequestState.loading) {
+            BlocBuilder<TvSeriesAiringTodayBloc, TvSeriesAiringTodayState>(
+              builder: (context, state) {
+                if (state is TvSeriesAiringTodayLoading) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state == RequestState.loaded) {
-                  return TvSeriesListWidget(data.airingTodayTv);
-                } else {
-                  return const Text('Failed');
+                } else if (state is TvSeriesAiringTodaySuccess) {
+                  return TvSeriesListWidget(state.results);
+                } else if (state is TvSeriesAiringTodayFailure) {
+                  return Text(state.message);
                 }
+                return const SizedBox();
               },
             ),
             LabelSeeMore(
@@ -87,18 +91,19 @@ class _TvSeriesListPageState extends State<TvSeriesListPage> {
                 TvSeriesPopularListPage.routeName,
               ),
             ),
-            Consumer<TvSeriesListNotifier>(
-              builder: (context, data, child) {
-                final state = data.popularTvState;
-                if (state == RequestState.loading) {
+            BlocBuilder<TvSeriesPopularBloc, TvSeriesPopularState>(
+              builder: (context, state) {
+                if (state is TvSeriesPopularLoading) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state == RequestState.loaded) {
-                  return TvSeriesListWidget(data.popularTv);
-                } else {
-                  return const Text('Failed');
+                } else if (state is TvSeriesPopularSuccess) {
+                  return TvSeriesListWidget(state.results);
+                } else if (state is TvSeriesPopularFailure) {
+                  return Text(state.message);
                 }
+
+                return const SizedBox();
               },
             ),
             LabelSeeMore(
@@ -108,18 +113,18 @@ class _TvSeriesListPageState extends State<TvSeriesListPage> {
                 TvSeriesTopRatedListPage.routeName,
               ),
             ),
-            Consumer<TvSeriesListNotifier>(
-              builder: (context, data, child) {
-                final state = data.topRatedTvState;
-                if (state == RequestState.loading) {
+            BlocBuilder<TvSeriesTopRatedBloc, TvSeriesTopRatedState>(
+              builder: (context, state) {
+                if (state is TvSeriesTopRatedLoading) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state == RequestState.loaded) {
-                  return TvSeriesListWidget(data.topRatedTv);
-                } else {
-                  return const Text('Failed');
+                } else if (state is TvSeriesTopRatedSuccess) {
+                  return TvSeriesListWidget(state.results);
+                } else if (state is TvSeriesTopRatedFailure) {
+                  return Text(state.message);
                 }
+                return const SizedBox();
               },
             ),
           ],

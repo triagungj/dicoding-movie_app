@@ -1,6 +1,6 @@
+import 'package:dependencies/flutter_bloc/flutter_bloc.dart';
 import 'package:dependencies/provider/provider.dart';
-import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/presentation/provider/tv_series_popular_notifier.dart';
+import 'package:ditonton/presentation/bloc/tv_series_popular/tv_series_popular_bloc.dart';
 import 'package:ditonton/presentation/widgets/tv_series_card.dart';
 import 'package:flutter/material.dart';
 
@@ -19,8 +19,9 @@ class _TvSeriesPopularListPageState extends State<TvSeriesPopularListPage> {
   void initState() {
     super.initState();
     Future.microtask(
-      () => Provider.of<TvSeriesPopularNotifier>(context, listen: false)
-          .fetchPopularTvSeries(),
+      () => Provider.of<TvSeriesPopularBloc>(context, listen: false).add(
+        GetTvSeriesPopularEvent(),
+      ),
     );
   }
 
@@ -32,26 +33,28 @@ class _TvSeriesPopularListPageState extends State<TvSeriesPopularListPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8),
-        child: Consumer<TvSeriesPopularNotifier>(
-          builder: (context, data, child) {
-            if (data.tvSeriesPopularState == RequestState.loading) {
+        child: BlocBuilder<TvSeriesPopularBloc, TvSeriesPopularState>(
+          builder: (context, state) {
+            if (state is TvSeriesPopularLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (data.tvSeriesPopularState == RequestState.loaded) {
+            } else if (state is TvSeriesPopularSuccess) {
+              final results = state.results;
               return ListView.builder(
                 itemBuilder: (context, index) {
-                  final tvSeries = data.listTvSeriesPopular[index];
+                  final tvSeries = results[index];
                   return TvSeriesCard(tvSeries: tvSeries);
                 },
-                itemCount: data.listTvSeriesPopular.length,
+                itemCount: results.length,
               );
-            } else {
+            } else if (state is TvSeriesPopularFailure) {
               return Center(
                 key: const Key('error_message'),
-                child: Text(data.message),
+                child: Text(state.message),
               );
             }
+            return const SizedBox();
           },
         ),
       ),

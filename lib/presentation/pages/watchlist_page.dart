@@ -1,9 +1,8 @@
 import 'package:dependencies/flutter_bloc/flutter_bloc.dart';
 import 'package:dependencies/provider/provider.dart';
-import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/common/utils.dart';
 import 'package:ditonton/presentation/bloc/movie_watchlist_load/movie_watchlist_load_bloc.dart';
-import 'package:ditonton/presentation/provider/watchlist_tv_series_notifier.dart';
+import 'package:ditonton/presentation/bloc/tv_series_watchlist_load/tv_series_watchlist_load_bloc.dart';
 import 'package:ditonton/presentation/widgets/app_drawer.dart';
 import 'package:ditonton/presentation/widgets/movie_card_list.dart';
 import 'package:ditonton/presentation/widgets/tv_series_card.dart';
@@ -28,8 +27,8 @@ class WatchlistPageState extends State<WatchlistPage> with RouteAware {
           Provider.of<MovieWatchlistLoadBloc>(context, listen: false)
               .add(GetMovieWatchlistLoadEvent());
         } else {
-          Provider.of<WatchlistTvSeriesNotifier>(context, listen: false)
-              .fetchWatchlistTv();
+          Provider.of<TvSeriesWatchlistLoadBloc>(context, listen: false)
+              .add(GetTvSeriesWatchlistLoadEvent());
         }
       },
     );
@@ -117,15 +116,16 @@ class WatchlistPageState extends State<WatchlistPage> with RouteAware {
     );
   }
 
-  Consumer<WatchlistTvSeriesNotifier> watchlistTvSeries() {
-    return Consumer<WatchlistTvSeriesNotifier>(
-      builder: (context, data, child) {
-        if (data.state == RequestState.loading) {
+  BlocBuilder<TvSeriesWatchlistLoadBloc, TvSeriesWatchlistLoadState>
+      watchlistTvSeries() {
+    return BlocBuilder<TvSeriesWatchlistLoadBloc, TvSeriesWatchlistLoadState>(
+      builder: (context, state) {
+        if (state is TvSeriesWatchlistLoadLoading) {
           return const Center(
             child: CircularProgressIndicator(),
           );
-        } else if (data.state == RequestState.loaded) {
-          final listTvSeries = data.listWatchlistTv;
+        } else if (state is TvSeriesWatchlistLoadSuccess) {
+          final listTvSeries = state.results;
           return listTvSeries.isNotEmpty
               ? Column(
                   children: List.generate(
@@ -139,12 +139,13 @@ class WatchlistPageState extends State<WatchlistPage> with RouteAware {
                     child: Text('Your Watchlist Tv Series is empty'),
                   ),
                 );
-        } else {
+        } else if (state is TvSeriesWatchlistLoadFailure) {
           return Center(
             key: const Key('error_message'),
-            child: Text(data.message),
+            child: Text(state.message),
           );
         }
+        return const SizedBox();
       },
     );
   }

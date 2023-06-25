@@ -13,6 +13,16 @@ import 'package:ditonton/presentation/bloc/movies_popular/movies_popular_bloc.da
 import 'package:ditonton/presentation/bloc/movies_recommendations/movies_recommendation_bloc.dart';
 import 'package:ditonton/presentation/bloc/movies_search/movies_search_bloc.dart';
 import 'package:ditonton/presentation/bloc/movies_top_rated/movies_top_rated_bloc.dart';
+import 'package:ditonton/presentation/bloc/tv_series_airing_today/tv_series_airing_today_bloc.dart';
+import 'package:ditonton/presentation/bloc/tv_series_detail/tv_series_detail_bloc.dart';
+import 'package:ditonton/presentation/bloc/tv_series_popular/tv_series_popular_bloc.dart';
+import 'package:ditonton/presentation/bloc/tv_series_recommendation/tv_series_recommendations_bloc.dart';
+import 'package:ditonton/presentation/bloc/tv_series_search/tv_series_search_bloc.dart';
+import 'package:ditonton/presentation/bloc/tv_series_top_rated/tv_series_top_rated_bloc.dart';
+import 'package:ditonton/presentation/bloc/tv_series_watchlist_insert/tv_series_watchlist_insert_bloc.dart';
+import 'package:ditonton/presentation/bloc/tv_series_watchlist_load/tv_series_watchlist_load_bloc.dart';
+import 'package:ditonton/presentation/bloc/tv_series_watchlist_remove/tv_series_watchlist_remove_bloc.dart';
+import 'package:ditonton/presentation/bloc/tv_series_watchlist_status/tv_series_watchlist_status_bloc.dart';
 import 'package:ditonton/presentation/cubit/drawer_cubit.dart';
 import 'package:ditonton/presentation/pages/about_page.dart';
 import 'package:ditonton/presentation/pages/home_movie_page.dart';
@@ -27,13 +37,6 @@ import 'package:ditonton/presentation/pages/tv_series_popular_list_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_search_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_top_rated_list_page.dart';
 import 'package:ditonton/presentation/pages/watchlist_page.dart';
-import 'package:ditonton/presentation/provider/tv_series_airing_today_notifier.dart';
-import 'package:ditonton/presentation/provider/tv_series_detail_notifier.dart';
-import 'package:ditonton/presentation/provider/tv_series_list_notifier.dart';
-import 'package:ditonton/presentation/provider/tv_series_popular_notifier.dart';
-import 'package:ditonton/presentation/provider/tv_series_search_notifier.dart';
-import 'package:ditonton/presentation/provider/tv_series_top_rated_notifier.dart';
-import 'package:ditonton/presentation/provider/watchlist_tv_series_notifier.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -85,26 +88,35 @@ class MyApp extends StatelessWidget {
 
         //
 
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TvSeriesListNotifier>(),
+        BlocProvider<TvSeriesAiringTodayBloc>(
+          create: (_) => di.locator<TvSeriesAiringTodayBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TvSeriesDetailNotifier>(),
+        BlocProvider<TvSeriesPopularBloc>(
+          create: (_) => di.locator<TvSeriesPopularBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TvSeriesAiringTodayNotifier>(),
+        BlocProvider<TvSeriesTopRatedBloc>(
+          create: (_) => di.locator<TvSeriesTopRatedBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TvSeriesSearchNotifier>(),
+        BlocProvider<TvSeriesDetailBloc>(
+          create: (_) => di.locator<TvSeriesDetailBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TvSeriesTopRatedNotifier>(),
+        BlocProvider<TvSeriesRecommendationsBloc>(
+          create: (_) => di.locator<TvSeriesRecommendationsBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TvSeriesPopularNotifier>(),
+        BlocProvider<TvSeriesSearchBloc>(
+          create: (_) => di.locator<TvSeriesSearchBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<WatchlistTvSeriesNotifier>(),
+        BlocProvider<TvSeriesWatchlistLoadBloc>(
+          create: (_) => di.locator<TvSeriesWatchlistLoadBloc>(),
+        ),
+        BlocProvider<TvSeriesWatchlistInsertBloc>(
+          create: (_) => di.locator<TvSeriesWatchlistInsertBloc>(),
+        ),
+        BlocProvider<TvSeriesWatchlistStatusBloc>(
+          create: (_) => di.locator<TvSeriesWatchlistStatusBloc>(),
+        ),
+        BlocProvider<TvSeriesWatchlistRemoveBloc>(
+          create: (_) => di.locator<TvSeriesWatchlistRemoveBloc>(),
         ),
         BlocProvider(
           create: (context) => di.locator<DrawerCubit>(),
