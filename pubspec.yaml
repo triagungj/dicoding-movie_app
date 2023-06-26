@@ -9,10 +9,22 @@ environment:
   sdk: ">=3.0.5 <4.0.0"
 
 dependencies:
+  common:
+    path: shared/common
+  components:
+    path: shared/components
+  core:
+    path: shared/core
   dependencies:
     path: shared/dependencies
   flutter:
     sdk: flutter
+  movies:
+    path: features/movies
+  tv_series:
+    path: features/tv_series
+  watchlist:
+    path: features/watchlist
 
 dev_dependencies:
   build_runner: ^2.0.4

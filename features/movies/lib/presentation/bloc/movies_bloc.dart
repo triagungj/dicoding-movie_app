@@ -1,0 +1,10 @@
+export 'package:movies/presentation/bloc/movie_detail/movie_detail_bloc.dart';
+export 'package:movies/presentation/bloc/movie_watchlist_insert/movie_watchlist_insert_bloc.dart';
+export 'package:movies/presentation/bloc/movie_watchlist_load/movie_watchlist_load_bloc.dart';
+export 'package:movies/presentation/bloc/movie_watchlist_remove/movie_watchlist_remove_bloc.dart';
+export 'package:movies/presentation/bloc/movie_watchlist_status/movie_watchlist_status_bloc.dart';
+export 'package:movies/presentation/bloc/movies_now_playing/movies_now_playing_bloc.dart';
+export 'package:movies/presentation/bloc/movies_popular/movies_popular_bloc.dart';
+export 'package:movies/presentation/bloc/movies_recommendations/movies_recommendation_bloc.dart';
+export 'package:movies/presentation/bloc/movies_search/movies_search_bloc.dart';
+export 'package:movies/presentation/bloc/movies_top_rated/movies_top_rated_bloc.dart';

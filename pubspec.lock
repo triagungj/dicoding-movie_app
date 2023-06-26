@@ -209,6 +209,20 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.1"
+  common:
+    dependency: "direct main"
+    description:
+      path: "shared/common"
+      relative: true
+    source: path
+    version: "0.0.1"
+  components:
+    dependency: "direct main"
+    description:
+      path: "shared/components"
+      relative: true
+    source: path
+    version: "0.0.1"
   conventional_commit:
     dependency: transitive
     description:
@@ -225,6 +239,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.1"
+  core:
+    dependency: "direct main"
+    description:
+      path: "shared/core"
+      relative: true
+    source: path
+    version: "0.0.1"
   crypto:
     dependency: transitive
     description:
@@ -233,14 +254,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.3"
-  cupertino_icons:
-    dependency: transitive
-    description:
-      name: cupertino_icons
-      sha256: e35129dc44c9118cee2a5603506d823bab99c68393879edb440e0090d07586be
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.5"
   dart_style:
     dependency: transitive
     description:
@@ -490,6 +503,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.4.1"
+  movies:
+    dependency: "direct main"
+    description:
+      path: "features/movies"
+      relative: true
+    source: path
+    version: "0.0.1"
   mustache_template:
     dependency: transitive
     description:
@@ -815,6 +835,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.1"
+  tv_series:
+    dependency: "direct main"
+    description:
+      path: "features/tv_series"
+      relative: true
+    source: path
+    version: "0.0.1"
   typed_data:
     dependency: transitive
     description:
@@ -863,6 +890,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
+  watchlist:
+    dependency: "direct main"
+    description:
+      path: "features/watchlist"
+      relative: true
+    source: path
+    version: "0.0.1"
   web_socket_channel:
     dependency: transitive
     description:

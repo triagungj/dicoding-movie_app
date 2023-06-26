@@ -1,44 +1,16 @@
+import 'package:common/styles.dart';
+import 'package:components/app_drawer/cubit/drawer_cubit.dart';
+import 'package:core/named_routes.dart';
+import 'package:core/utils.dart';
 import 'package:dependencies/flutter_bloc/flutter_bloc.dart';
 import 'package:dependencies/provider/provider.dart';
-import 'package:ditonton/common/constants.dart';
-import 'package:ditonton/common/utils.dart';
 import 'package:ditonton/injection.dart' as di;
-import 'package:ditonton/presentation/bloc/movie_detail/movie_detail_bloc.dart';
-import 'package:ditonton/presentation/bloc/movie_watchlist_insert/movie_watchlist_insert_bloc.dart';
-import 'package:ditonton/presentation/bloc/movie_watchlist_load/movie_watchlist_load_bloc.dart';
-import 'package:ditonton/presentation/bloc/movie_watchlist_remove/movie_watchlist_remove_bloc.dart';
-import 'package:ditonton/presentation/bloc/movie_watchlist_status/movie_watchlist_status_bloc.dart';
-import 'package:ditonton/presentation/bloc/movies_now_playing/movies_now_playing_bloc.dart';
-import 'package:ditonton/presentation/bloc/movies_popular/movies_popular_bloc.dart';
-import 'package:ditonton/presentation/bloc/movies_recommendations/movies_recommendation_bloc.dart';
-import 'package:ditonton/presentation/bloc/movies_search/movies_search_bloc.dart';
-import 'package:ditonton/presentation/bloc/movies_top_rated/movies_top_rated_bloc.dart';
-import 'package:ditonton/presentation/bloc/tv_series_airing_today/tv_series_airing_today_bloc.dart';
-import 'package:ditonton/presentation/bloc/tv_series_detail/tv_series_detail_bloc.dart';
-import 'package:ditonton/presentation/bloc/tv_series_popular/tv_series_popular_bloc.dart';
-import 'package:ditonton/presentation/bloc/tv_series_recommendation/tv_series_recommendations_bloc.dart';
-import 'package:ditonton/presentation/bloc/tv_series_search/tv_series_search_bloc.dart';
-import 'package:ditonton/presentation/bloc/tv_series_top_rated/tv_series_top_rated_bloc.dart';
-import 'package:ditonton/presentation/bloc/tv_series_watchlist_insert/tv_series_watchlist_insert_bloc.dart';
-import 'package:ditonton/presentation/bloc/tv_series_watchlist_load/tv_series_watchlist_load_bloc.dart';
-import 'package:ditonton/presentation/bloc/tv_series_watchlist_remove/tv_series_watchlist_remove_bloc.dart';
-import 'package:ditonton/presentation/bloc/tv_series_watchlist_status/tv_series_watchlist_status_bloc.dart';
-import 'package:ditonton/presentation/cubit/drawer_cubit.dart';
 import 'package:ditonton/presentation/pages/about_page.dart';
-import 'package:ditonton/presentation/pages/home_movie_page.dart';
-import 'package:ditonton/presentation/pages/movie_detail_page.dart';
-import 'package:ditonton/presentation/pages/popular_movies_page.dart';
-import 'package:ditonton/presentation/pages/search_movie_page.dart';
-import 'package:ditonton/presentation/pages/top_rated_movies_page.dart';
-import 'package:ditonton/presentation/pages/tv_series_airing_today_page.dart';
-import 'package:ditonton/presentation/pages/tv_series_detail_page.dart';
-import 'package:ditonton/presentation/pages/tv_series_list_page.dart';
-import 'package:ditonton/presentation/pages/tv_series_popular_list_page.dart';
-import 'package:ditonton/presentation/pages/tv_series_search_page.dart';
-import 'package:ditonton/presentation/pages/tv_series_top_rated_list_page.dart';
-import 'package:ditonton/presentation/pages/watchlist_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:movies/movies.dart';
+import 'package:tv_series/tv_series.dart';
+import 'package:watchlist/presentation/pages/watchlist_page.dart';
 
 void main() {
   di.init();
@@ -125,66 +97,66 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData.dark().copyWith(
-          colorScheme: Constants.kColorScheme,
-          primaryColor: Constants.kRichBlack,
-          scaffoldBackgroundColor: Constants.kRichBlack,
-          textTheme: Constants.kTextTheme,
+          colorScheme: Styles.kColorScheme,
+          primaryColor: Styles.kRichBlack,
+          scaffoldBackgroundColor: Styles.kRichBlack,
+          textTheme: Styles.kTextTheme,
         ),
         home: const HomeMoviePage(),
         navigatorObservers: [routeObserver],
         onGenerateRoute: (RouteSettings settings) {
           switch (settings.name) {
-            case HomeMoviePage.routeName:
+            case NamedRoutes.moviePage:
               return CupertinoPageRoute(builder: (_) => const HomeMoviePage());
-            case PopularMoviesPage.routeName:
+            case NamedRoutes.popularMoviePage:
               return CupertinoPageRoute(
                 builder: (_) => const PopularMoviesPage(),
               );
-            case TopRatedMoviesPage.routeName:
+            case NamedRoutes.topRatedMoviePage:
               return CupertinoPageRoute(
                 builder: (_) => const TopRatedMoviesPage(),
               );
-            case MovieDetailPage.routeName:
+            case NamedRoutes.detailMoviePage:
               final id = settings.arguments as int?;
               return CupertinoPageRoute(
                 builder: (_) => MovieDetailPage(id: id!),
                 settings: settings,
               );
-            case SearchMoviePage.routeName:
+            case NamedRoutes.searchMoviePage:
               return CupertinoPageRoute(
                 builder: (_) => const SearchMoviePage(),
               );
-            case TvSeriesListPage.routeName:
+            case NamedRoutes.tvSeriesPage:
               return CupertinoPageRoute(
                 builder: (_) => const TvSeriesListPage(),
               );
-            case TvSeriesSearchPage.routeName:
+            case NamedRoutes.searchTvSeriesPage:
               return CupertinoPageRoute(
                 builder: (_) => const TvSeriesSearchPage(),
               );
-            case TvSeriesDetailPage.routeName:
+            case NamedRoutes.detailTvSeriesPage:
               final id = settings.arguments as int?;
               return CupertinoPageRoute(
                 builder: (_) => TvSeriesDetailPage(id: id!),
                 settings: settings,
               );
-            case TvSeriesAiringTodayPage.routeName:
+            case NamedRoutes.airingTodayTvSeriesPage:
               return CupertinoPageRoute(
                 builder: (_) => const TvSeriesAiringTodayPage(),
               );
-            case TvSeriesPopularListPage.routeName:
+            case NamedRoutes.popularTvSeriesPage:
               return CupertinoPageRoute(
                 builder: (_) => const TvSeriesPopularListPage(),
               );
-            case TvSeriesTopRatedListPage.routeName:
+            case NamedRoutes.topRatedTvSeriesPage:
               return CupertinoPageRoute(
                 builder: (_) => const TvSeriesTopRatedListPage(),
               );
-            case WatchlistPage.routeName:
+            case NamedRoutes.watchlistPage:
               return CupertinoPageRoute(
                 builder: (_) => const WatchlistPage(),
               );
-            case AboutPage.routeName:
+            case NamedRoutes.aboutPage:
               return CupertinoPageRoute(builder: (_) => const AboutPage());
             default:
               return CupertinoPageRoute(

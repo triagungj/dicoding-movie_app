@@ -1,18 +1,16 @@
-import 'package:ditonton/common/constants.dart';
-import 'package:ditonton/presentation/widgets/app_drawer.dart';
+import 'package:common/styles.dart';
+import 'package:components/app_drawer/app_drawer.dart';
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
-
-  static const routeName = '/about';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const AppDrawer(),
       appBar: AppBar(
-        backgroundColor: Constants.kPrussianBlue,
+        backgroundColor: Styles.kPrussianBlue,
         elevation: 0,
       ),
       body: Stack(
@@ -21,7 +19,7 @@ class AboutPage extends StatelessWidget {
             children: [
               Expanded(
                 child: ColoredBox(
-                  color: Constants.kPrussianBlue,
+                  color: Styles.kPrussianBlue,
                   child: Center(
                     child: Image.asset(
                       'assets/circle-g.png',
@@ -33,7 +31,7 @@ class AboutPage extends StatelessWidget {
               Expanded(
                 child: Container(
                   padding: const EdgeInsets.all(32),
-                  color: Constants.kMikadoYellow,
+                  color: Styles.kMikadoYellow,
                   child: const Text(
                     '''Ditonton merupakan sebuah aplikasi katalog film yang dikembangkan oleh Dicoding Indonesia sebagai contoh proyek aplikasi untuk kelas Menjadi Flutter Developer Expert.''',
                     style: TextStyle(color: Colors.black87, fontSize: 16),
