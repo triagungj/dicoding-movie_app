@@ -13,7 +13,7 @@ void main() {
       },
     );
 
-  test(
+    test(
       'should return props',
       () {
         final result = testTvSeriesSeasonModel.toEntity();

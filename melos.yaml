@@ -16,6 +16,9 @@ scripts:
   format:
     run: melos exec -- "flutter format . --set-exit-if-changed"
     description: Run `flutter format .` in all packages
+  format_dev:
+    run: melos exec -- "dart format . "
+    description: Run `flutter format .` in all packages
   test:
     run: melos exec --dir-exists="test" --fail-fast -- flutter test --no-pub --coverage
     description: Run Flutter tests for a specific package in this project.
