@@ -21,6 +21,6 @@ workflows:
       - name: Run Analyze
         script: melos run analyze
       - name: Run Format
-        script: melos run format
+        script: melos run inspect_format
       - name: Run Tests
         script: melos run test

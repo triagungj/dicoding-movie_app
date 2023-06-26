@@ -13,10 +13,10 @@ scripts:
     run: melos exec -c 1 --depends-on="build_runner" --flutter -- "flutter pub run build_runner build --delete-conflicting-outputs"
     description: Run `flutter analyze` in all packages
 
-  format:
-    run: melos exec -- "flutter format . --set-exit-if-changed"
+  inspect_format:
+    run: melos exec -- "dart format . --set-exit-if-changed"
     description: Run `flutter format .` in all packages
-  format_dev:
+  format:
     run: melos exec -- "dart format . "
     description: Run `flutter format .` in all packages
   test:
