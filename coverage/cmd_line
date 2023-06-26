@@ -1,0 +1,1 @@
+genhtml coverage/lcov.info -o coverage --no-function-coverage -s -p /Users/varx/Documents/TJ/Dicoding/FlutterExpert/submission1/dicoding-movie_app/coverage

@@ -1,5 +1,5 @@
-import 'package:dependencies/equatable/equatable.dart';
 import 'package:common/genre.dart';
+import 'package:dependencies/equatable/equatable.dart';
 
 class MovieDetail extends Equatable {
   const MovieDetail({

@@ -22,12 +22,11 @@ class TvSeriesDbHelper {
     final path = await getDatabasesPath();
     final databasePath = '$path/ditonton_tv_series.db';
 
-    final db =
-        await openDatabase(databasePath, version: 1, onCreate: _onCreate);
+    final db = await openDatabase(databasePath, version: 1, onCreate: onCreate);
     return db;
   }
 
-  Future<void> _onCreate(Database db, int version) async {
+  Future<void> onCreate(Database db, int version) async {
     await db.execute('''
       CREATE TABLE  $_tblWatchlistTvSeries (
         id INTEGER PRIMARY KEY,

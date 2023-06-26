@@ -1,5 +1,5 @@
-import 'package:dependencies/dartz/dartz.dart';
 import 'package:core/failure.dart';
+import 'package:dependencies/dartz/dartz.dart';
 import 'package:tv_series/domain/entities/tv_series.dart';
 import 'package:tv_series/domain/entities/tv_series_detail.dart';
 
