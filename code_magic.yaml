@@ -1,0 +1,26 @@
+workflows:
+  ci:
+    name: CI
+    instance_type: mac_mini
+    # Setting the timeout for a build to 15 minutes.
+    max_build_duration: 15
+    environment:
+      # Using the latest Flutter version.
+      flutter: stable
+    # This workflow should trigger when a new pull request opens or updates.
+    triggering:
+      events:
+        - pull_request
+    scripts:
+      - name: Melos Bootstrap
+        script: |
+          dart pub global activate melos
+          melos bootstrap
+      - name: Run Build Runner
+        script: melos run build_runner
+      - name: Run Analyze
+        script: melos run analyze
+      - name: Run Format
+        script: melos run format
+      - name: Run Tests
+        script: melos run test
