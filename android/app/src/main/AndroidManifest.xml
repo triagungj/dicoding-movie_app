@@ -2,7 +2,7 @@
     package="tech.nyctophile.movie_app.dicoding">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="ditonton"
+        android:label="Ditonton"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
