@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "202315218348",
+    "project_id": "dicoding-movie-app",
+    "storage_bucket": "dicoding-movie-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202315218348:android:d959d7710b4666c6340e09",
+        "android_client_info": {
+          "package_name": "tech.nyctophile.movie_app.dicoding"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202315218348-6vqh4h9gr0nom1cl0s9s7s6atutbat6a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tech.nyctophile.movie_app.dicoding",
+            "certificate_hash": "ec78f787994176ac1df37e560d1a409d7c45757b"
+          }
+        },
+        {
+          "client_id": "202315218348-fjsf10jfqhicuhrhnbens12g0opb3nfv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtcjOlQ2dv9JsC-PWa_uPBVPG2mTBtYKk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202315218348-fjsf10jfqhicuhrhnbens12g0opb3nfv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "202315218348-2kih75mr6fkpa232n5ed71f9cm49qss7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dicoding.ditonton"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,7 +2,7 @@
 
 ---
 
-[![Codemagic build status](https://api.codemagic.io/apps/6495e63bd062fbd108096fb1/6495e63bd062fbd108096fb0/status_badge.svg)](https://codemagic.io/apps/<app-id>/<workflow-id>/latest_build)
+[![Codemagic build status](https://api.codemagic.io/apps/6495e63bd062fbd108096fb1/ci/status_badge.svg)](https://codemagic.io/apps/<app-id>/<workflow-id>/latest_build)
 
 ## How To
 
@@ -24,9 +24,9 @@ Untuk melakukan Get Packages di setiap packages nya, jalankan command dibawah in
 melos bootstrap
 ```
 
-## Tips Submission Akhir
+## Testing
 
-Jika kamu menerapkan modular pada project, Anda dapat memanfaatkan berkas `test.sh` pada repository ini. Berkas tersebut dapat mempermudah proses testing melalui *terminal* atau *command prompt*. Sebelumnya menjalankan berkas tersebut, ikuti beberapa langkah berikut:
+Project ini mengimplementasi modularization, Anda dapat memanfaatkan berkas `test.sh` pada repository ini. Berkas tersebut dapat mempermudah proses testing melalui *terminal* atau *command prompt*. Sebelumnya menjalankan berkas tersebut, ikuti beberapa langkah berikut:
 
 1. Install terlebih dahulu aplikasi sesuai dengan Operating System (OS) yang Anda gunakan.
 
@@ -66,16 +66,20 @@ git init
 3. Kemudian jalankan berkas `test.sh` dengan perintah berikut pada *terminal* atau *powershell*.
 
 ```text
-test.sh
+./test.sh
 ```
 
-atau
+atau (untuk MacOS)
 
 ```text
-./test.sh
+sh ./test.sh
 ```
 
 Proses ini akan men-*generate* berkas `lcov.info` dan folder `coverage` terkait dengan laporan coverage.
 
 4. Tunggu proses testing selesai hingga muncul web terkait laporan coverage.
+
+## Appreciation
+
+Banyak terimakasih untuk para kontributor materi pada kelas Dicoding Expert. Semoga ilmu yang diberikan dapat bermanfaat bagi saya untuk membantu banyak orang 😁
 
