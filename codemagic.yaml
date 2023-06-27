@@ -7,10 +7,10 @@ workflows:
     environment:
       # Using the latest Flutter version.
       flutter: stable
-    # This workflow should trigger when a new pull request opens or updates.
+    # This workflow should trigger when a new push.
     triggering:
       events:
-        - pull_request
+        - push
     scripts:
       - name: Melos Bootstrap
         script: |
