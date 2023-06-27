@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:core/exception.dart';
-import 'package:dependencies/http/http.dart' as http;
+import 'package:dependencies/http/http.dart';
 import 'package:tv_series/data/models/tv_series_detail_response.dart';
 import 'package:tv_series/data/models/tv_series_model.dart';
 import 'package:tv_series/data/models/tv_series_response.dart';
@@ -20,7 +20,7 @@ class TvSeriesRemoteDataSourceImpl implements TvSeriesRemoteDataSource {
   static const apiKey = 'api_key=2174d146bb9c0eab47529b2e77d6b526';
   static const baseUrl = 'https://api.themoviedb.org/3';
 
-  final http.Client client;
+  final IOClient client;
 
   @override
   Future<List<TvSeriesModel>> getAiringTodayTvSeries() async {

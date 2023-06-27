@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2023-06-27 00:32:46</td>
+            <td class="headerValue">2023-06-27 11:22:31</td>
             <td></td>
           </tr>
                   <tr><td><img src="../../../../../../../../../../../../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -59,7 +59,7 @@
 <span id="L1"><span class="lineNum">       1</span>              : import 'dart:convert';</span>
 <span id="L2"><span class="lineNum">       2</span>              : </span>
 <span id="L3"><span class="lineNum">       3</span>              : import 'package:core/exception.dart';</span>
-<span id="L4"><span class="lineNum">       4</span>              : import 'package:dependencies/http/http.dart' as http;</span>
+<span id="L4"><span class="lineNum">       4</span>              : import 'package:dependencies/http/http.dart';</span>
 <span id="L5"><span class="lineNum">       5</span>              : import 'package:movies/data/models/movie_detail_model.dart';</span>
 <span id="L6"><span class="lineNum">       6</span>              : import 'package:movies/data/models/movie_model.dart';</span>
 <span id="L7"><span class="lineNum">       7</span>              : import 'package:movies/data/models/movie_response.dart';</span>
@@ -78,7 +78,7 @@
 <span id="L20"><span class="lineNum">      20</span>              :   static const apiKey = 'api_key=2174d146bb9c0eab47529b2e77d6b526';</span>
 <span id="L21"><span class="lineNum">      21</span>              :   static const baseUrl = 'https://api.themoviedb.org/3';</span>
 <span id="L22"><span class="lineNum">      22</span>              : </span>
-<span id="L23"><span class="lineNum">      23</span>              :   final http.Client client;</span>
+<span id="L23"><span class="lineNum">      23</span>              :   final IOClient client;</span>
 <span id="L24"><span class="lineNum">      24</span>              : </span>
 <span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">           1 :   @override</span></span>
 <span id="L26"><span class="lineNum">      26</span>              :   Future&lt;List&lt;MovieModel&gt;&gt; getNowPlayingMovies() async {</span>

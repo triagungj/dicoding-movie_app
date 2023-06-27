@@ -1,6 +1,7 @@
 import 'package:components/app_drawer/cubit/drawer_cubit.dart';
+import 'package:core/client_handler.dart';
 import 'package:dependencies/get_it/get_it.dart';
-import 'package:dependencies/http/http.dart' as http;
+import 'package:dependencies/http/http.dart';
 import 'package:movies/data/datasources/db/movies_db_helper.dart';
 import 'package:movies/data/datasources/movie_local_data_source.dart';
 import 'package:movies/data/datasources/movie_remote_data_source.dart';
@@ -18,8 +19,7 @@ import 'package:tv_series/presentation/bloc/tv_series_bloc.dart';
 
 final locator = GetIt.instance;
 
-void init() {
-  // provider
+Future<void> init() async {
   locator
     // * MOVIES
     ..registerFactory(
@@ -138,7 +138,10 @@ void init() {
     ..registerLazySingleton<TvSeriesDbHelper>(TvSeriesDbHelper.new)
 
     // external
-    ..registerLazySingleton(http.Client.new)
+    ..registerLazySingleton<IOClient>(
+      () => locator<ClientHandler>().client,
+    )
+    ..registerLazySingleton<ClientHandler>(ClientHandler.new)
 
     // drawer
     ..registerLazySingleton(DrawerCubit.new);

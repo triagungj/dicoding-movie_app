@@ -1,9 +1,6 @@
 import 'package:ditonton/app/app.dart';
-import 'package:ditonton/injection.dart' as di;
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:ditonton/bootstrap.dart';
 
-void main() {
-  di.init();
-  runApp(const App());
+void main() async {
+  await bootstrap(App.new);
 }

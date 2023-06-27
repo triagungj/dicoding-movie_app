@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:core/exception.dart';
-import 'package:dependencies/http/http.dart' as http;
+import 'package:dependencies/http/http.dart';
 import 'package:movies/data/models/movie_detail_model.dart';
 import 'package:movies/data/models/movie_model.dart';
 import 'package:movies/data/models/movie_response.dart';
@@ -20,7 +20,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
   static const apiKey = 'api_key=2174d146bb9c0eab47529b2e77d6b526';
   static const baseUrl = 'https://api.themoviedb.org/3';
 
-  final http.Client client;
+  final IOClient client;
 
   @override
   Future<List<MovieModel>> getNowPlayingMovies() async {

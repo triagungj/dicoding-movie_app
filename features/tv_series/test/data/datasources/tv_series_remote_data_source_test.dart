@@ -17,11 +17,11 @@ void main() {
   const baseUrl = 'https://api.themoviedb.org/3';
 
   late TvSeriesRemoteDataSourceImpl dataSource;
-  late MockHttpClient mockHttpClient;
+  late MockIOClient mockIOClient;
 
   setUp(() {
-    mockHttpClient = MockHttpClient();
-    dataSource = TvSeriesRemoteDataSourceImpl(mockHttpClient);
+    mockIOClient = MockIOClient();
+    dataSource = TvSeriesRemoteDataSourceImpl(mockIOClient);
   });
 
   group('get Airing Today Tv Series', () {
@@ -35,7 +35,7 @@ void main() {
       () async {
         // arrange
         when(
-          mockHttpClient.get(Uri.parse('$baseUrl/tv/airing_today?$apiKey')),
+          mockIOClient.get(Uri.parse('$baseUrl/tv/airing_today?$apiKey')),
         ).thenAnswer(
           (_) async => http.Response(
             readJson('dummy_data/tv_airing_today.json'),
@@ -55,7 +55,7 @@ void main() {
       () async {
         // arrange
         when(
-          mockHttpClient.get(Uri.parse('$baseUrl/tv/airing_today?$apiKey')),
+          mockIOClient.get(Uri.parse('$baseUrl/tv/airing_today?$apiKey')),
         ).thenAnswer(
           (_) async => http.Response('Not Found', 404),
         );
@@ -79,7 +79,7 @@ void main() {
       () async {
         // arrange
         when(
-          mockHttpClient.get(Uri.parse('$baseUrl/tv/popular?$apiKey')),
+          mockIOClient.get(Uri.parse('$baseUrl/tv/popular?$apiKey')),
         ).thenAnswer(
           (_) async => http.Response(
             readJson('dummy_data/tv_series_popular.json'),
@@ -101,7 +101,7 @@ void main() {
       'should throw a ServerException when the response code is 404 or other',
       () {
         // arrange
-        when(mockHttpClient.get(Uri.parse('$baseUrl/tv/popular?$apiKey')))
+        when(mockIOClient.get(Uri.parse('$baseUrl/tv/popular?$apiKey')))
             .thenAnswer(
           (_) async => http.Response('Not found', 404),
         );
@@ -125,7 +125,7 @@ void main() {
       () async {
         // arrange
         when(
-          mockHttpClient.get(Uri.parse('$baseUrl/tv/top_rated?$apiKey')),
+          mockIOClient.get(Uri.parse('$baseUrl/tv/top_rated?$apiKey')),
         ).thenAnswer(
           (_) async => http.Response(
             readJson('dummy_data/tv_top_rated.json'),
@@ -148,7 +148,7 @@ void main() {
       'should throw a ServerException when status code is 404 or other',
       () {
         // arrange
-        when(mockHttpClient.get(Uri.parse('$baseUrl/tv/top_rated?$apiKey')))
+        when(mockIOClient.get(Uri.parse('$baseUrl/tv/top_rated?$apiKey')))
             .thenAnswer(
           (_) async => http.Response('Not found', 404),
         );
@@ -172,7 +172,7 @@ void main() {
       'should return a Tv Series Detail',
       () async {
         // arrange
-        when(mockHttpClient.get(Uri.parse('$baseUrl/tv/$tvId?$apiKey')))
+        when(mockIOClient.get(Uri.parse('$baseUrl/tv/$tvId?$apiKey')))
             .thenAnswer(
           (_) async => http.Response(
             readJson('dummy_data/tv_series_detail.json'),
@@ -196,7 +196,7 @@ void main() {
       () async {
         // arrange
         when(
-          mockHttpClient.get(Uri.parse('$baseUrl/tv/$tvId?$apiKey')),
+          mockIOClient.get(Uri.parse('$baseUrl/tv/$tvId?$apiKey')),
         ).thenAnswer(
           (_) async => http.Response('Not Found', 404),
         );
@@ -223,7 +223,7 @@ void main() {
         () async {
           // arrange
           when(
-            mockHttpClient.get(
+            mockIOClient.get(
               Uri.parse('$baseUrl/tv/$tvId/recommendations?$apiKey'),
             ),
           ).thenAnswer(
@@ -249,7 +249,7 @@ void main() {
         () async {
           // arrange
           when(
-            mockHttpClient.get(
+            mockIOClient.get(
               Uri.parse('$baseUrl/tv/$tvId/recommendations?$apiKey'),
             ),
           ).thenAnswer(
@@ -278,8 +278,7 @@ void main() {
     test('should return a list of searched tv series', () async {
       // arrange
       when(
-        mockHttpClient
-            .get(Uri.parse('$baseUrl/search/tv?query=$query&$apiKey')),
+        mockIOClient.get(Uri.parse('$baseUrl/search/tv?query=$query&$apiKey')),
       ).thenAnswer(
         (_) async => http.Response(
           readJson('dummy_data/tv_series_search.json'),
@@ -300,7 +299,7 @@ void main() {
       () async {
         // arrange
         when(
-          mockHttpClient
+          mockIOClient
               .get(Uri.parse('$baseUrl/search/tv?query=$query&$apiKey')),
         ).thenAnswer(
           (_) async => http.Response('Not Found', 404),
