@@ -1,8 +1,5 @@
 part of 'tv_series_popular_bloc.dart';
 
-abstract class TvSeriesPopularEvent extends Equatable {
-  @override
-  List<Object> get props => [];
-}
+abstract class TvSeriesPopularEvent {}
 
 class GetTvSeriesPopularEvent extends TvSeriesPopularEvent {}

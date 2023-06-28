@@ -1,4 +1,3 @@
-import 'package:dependencies/equatable/equatable.dart';
 import 'package:dependencies/flutter_bloc/flutter_bloc.dart';
 import 'package:tv_series/domain/usecases/get_watchlist_status_tv.dart';
 
