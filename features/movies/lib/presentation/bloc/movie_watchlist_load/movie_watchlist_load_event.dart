@@ -1,8 +1,5 @@
 part of 'movie_watchlist_load_bloc.dart';
 
-abstract class MovieWatchlistLoadEvent extends Equatable {
-  @override
-  List<Object> get props => [];
-}
+abstract class MovieWatchlistLoadEvent {}
 
 class GetMovieWatchlistLoadEvent extends MovieWatchlistLoadEvent {}
