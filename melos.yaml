@@ -1,7 +1,7 @@
 name: ditonton
 
 packages:
-  - ./
+  - .
   - features/**
   - shared/**
 
