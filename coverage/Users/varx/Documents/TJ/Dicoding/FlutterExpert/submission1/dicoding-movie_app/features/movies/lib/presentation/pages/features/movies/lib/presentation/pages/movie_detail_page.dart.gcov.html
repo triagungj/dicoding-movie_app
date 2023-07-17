@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntryMed">81.4&nbsp;%</td>
-            <td class="headerCovTableEntry">161</td>
+            <td class="headerCovTableEntryMed">82.9&nbsp;%</td>
+            <td class="headerCovTableEntry">158</td>
             <td class="headerCovTableEntry">131</td>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2023-07-17 17:14:46</td>
+            <td class="headerValue">2023-07-18 01:18:16</td>
             <td></td>
           </tr>
                   <tr><td><img src="../../../../../../../../../../../../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -353,109 +353,105 @@
 <span id="L295"><span class="lineNum">     295</span> <span class="tlaGNC">           1 :                         placeholder: (context, url) =&gt; const Center(</span></span>
 <span id="L296"><span class="lineNum">     296</span>              :                           child: CircularProgressIndicator(),</span>
 <span id="L297"><span class="lineNum">     297</span>              :                         ),</span>
-<span id="L298"><span class="lineNum">     298</span> <span class="tlaUNC tlaBgUNC">           0 :                         errorWidget: (context, url, error) =&gt;</span></span>
-<span id="L299"><span class="lineNum">     299</span>              :                             const Icon(Icons.error),</span>
-<span id="L300"><span class="lineNum">     300</span>              :                       )</span>
-<span id="L301"><span class="lineNum">     301</span>              :                     : const Icon(Icons.image),</span>
-<span id="L302"><span class="lineNum">     302</span>              :               ),</span>
-<span id="L303"><span class="lineNum">     303</span>              :             ),</span>
-<span id="L304"><span class="lineNum">     304</span>              :           );</span>
-<span id="L305"><span class="lineNum">     305</span>              :         },</span>
-<span id="L306"><span class="lineNum">     306</span> <span class="tlaGNC tlaBgGNC">           2 :         itemCount: recommendations.length,</span></span>
-<span id="L307"><span class="lineNum">     307</span>              :       ),</span>
-<span id="L308"><span class="lineNum">     308</span>              :     );</span>
-<span id="L309"><span class="lineNum">     309</span>              :   }</span>
-<span id="L310"><span class="lineNum">     310</span>              : }</span>
-<span id="L311"><span class="lineNum">     311</span>              : </span>
-<span id="L312"><span class="lineNum">     312</span>              : class WatchlistButton extends StatelessWidget {</span>
-<span id="L313"><span class="lineNum">     313</span> <span class="tlaGNC">           1 :   const WatchlistButton({</span></span>
-<span id="L314"><span class="lineNum">     314</span>              :     required this.isAddedWatchlist,</span>
-<span id="L315"><span class="lineNum">     315</span>              :     required this.movie,</span>
-<span id="L316"><span class="lineNum">     316</span>              :     super.key,</span>
-<span id="L317"><span class="lineNum">     317</span>              :   });</span>
-<span id="L318"><span class="lineNum">     318</span>              : </span>
-<span id="L319"><span class="lineNum">     319</span>              :   final bool isAddedWatchlist;</span>
-<span id="L320"><span class="lineNum">     320</span>              :   final MovieDetail movie;</span>
-<span id="L321"><span class="lineNum">     321</span>              : </span>
-<span id="L322"><span class="lineNum">     322</span> <span class="tlaGNC">           1 :   @override</span></span>
-<span id="L323"><span class="lineNum">     323</span>              :   Widget build(BuildContext context) {</span>
-<span id="L324"><span class="lineNum">     324</span> <span class="tlaGNC">           1 :     return MultiBlocListener(</span></span>
-<span id="L325"><span class="lineNum">     325</span> <span class="tlaGNC">           1 :       listeners: [</span></span>
-<span id="L326"><span class="lineNum">     326</span> <span class="tlaGNC">           1 :         BlocListener&lt;MovieWatchlistInsertBloc, MovieWatchlistInsertState&gt;(</span></span>
-<span id="L327"><span class="lineNum">     327</span> <span class="tlaUNC tlaBgUNC">           0 :           listener: (context, state) {</span></span>
-<span id="L328"><span class="lineNum">     328</span> <span class="tlaUNC">           0 :             if (state is MovieWatchlistInsertSuccess) {</span></span>
-<span id="L329"><span class="lineNum">     329</span> <span class="tlaUNC">           0 :               ScaffoldMessenger.of(context).clearSnackBars();</span></span>
-<span id="L330"><span class="lineNum">     330</span> <span class="tlaUNC">           0 :               ScaffoldMessenger.of(context).showSnackBar(</span></span>
-<span id="L331"><span class="lineNum">     331</span> <span class="tlaUNC">           0 :                 SnackBar(content: Text(state.message)),</span></span>
+<span id="L298"><span class="lineNum">     298</span>              :                       )</span>
+<span id="L299"><span class="lineNum">     299</span>              :                     : const Icon(Icons.image),</span>
+<span id="L300"><span class="lineNum">     300</span>              :               ),</span>
+<span id="L301"><span class="lineNum">     301</span>              :             ),</span>
+<span id="L302"><span class="lineNum">     302</span>              :           );</span>
+<span id="L303"><span class="lineNum">     303</span>              :         },</span>
+<span id="L304"><span class="lineNum">     304</span> <span class="tlaGNC">           2 :         itemCount: recommendations.length,</span></span>
+<span id="L305"><span class="lineNum">     305</span>              :       ),</span>
+<span id="L306"><span class="lineNum">     306</span>              :     );</span>
+<span id="L307"><span class="lineNum">     307</span>              :   }</span>
+<span id="L308"><span class="lineNum">     308</span>              : }</span>
+<span id="L309"><span class="lineNum">     309</span>              : </span>
+<span id="L310"><span class="lineNum">     310</span>              : class WatchlistButton extends StatelessWidget {</span>
+<span id="L311"><span class="lineNum">     311</span> <span class="tlaGNC">           1 :   const WatchlistButton({</span></span>
+<span id="L312"><span class="lineNum">     312</span>              :     required this.isAddedWatchlist,</span>
+<span id="L313"><span class="lineNum">     313</span>              :     required this.movie,</span>
+<span id="L314"><span class="lineNum">     314</span>              :     super.key,</span>
+<span id="L315"><span class="lineNum">     315</span>              :   });</span>
+<span id="L316"><span class="lineNum">     316</span>              : </span>
+<span id="L317"><span class="lineNum">     317</span>              :   final bool isAddedWatchlist;</span>
+<span id="L318"><span class="lineNum">     318</span>              :   final MovieDetail movie;</span>
+<span id="L319"><span class="lineNum">     319</span>              : </span>
+<span id="L320"><span class="lineNum">     320</span> <span class="tlaGNC">           1 :   @override</span></span>
+<span id="L321"><span class="lineNum">     321</span>              :   Widget build(BuildContext context) {</span>
+<span id="L322"><span class="lineNum">     322</span> <span class="tlaGNC">           1 :     return MultiBlocListener(</span></span>
+<span id="L323"><span class="lineNum">     323</span> <span class="tlaGNC">           1 :       listeners: [</span></span>
+<span id="L324"><span class="lineNum">     324</span> <span class="tlaGNC">           1 :         BlocListener&lt;MovieWatchlistInsertBloc, MovieWatchlistInsertState&gt;(</span></span>
+<span id="L325"><span class="lineNum">     325</span> <span class="tlaUNC tlaBgUNC">           0 :           listener: (context, state) {</span></span>
+<span id="L326"><span class="lineNum">     326</span> <span class="tlaUNC">           0 :             if (state is MovieWatchlistInsertSuccess) {</span></span>
+<span id="L327"><span class="lineNum">     327</span> <span class="tlaUNC">           0 :               ScaffoldMessenger.of(context).showSnackBar(</span></span>
+<span id="L328"><span class="lineNum">     328</span> <span class="tlaUNC">           0 :                 SnackBar(content: Text(state.message)),</span></span>
+<span id="L329"><span class="lineNum">     329</span>              :               );</span>
+<span id="L330"><span class="lineNum">     330</span> <span class="tlaUNC">           0 :               Provider.of&lt;MovieWatchlistStatusBloc&gt;(context, listen: false).add(</span></span>
+<span id="L331"><span class="lineNum">     331</span> <span class="tlaUNC">           0 :                 GetMovieWatchlistStatusEvent(movie.id),</span></span>
 <span id="L332"><span class="lineNum">     332</span>              :               );</span>
-<span id="L333"><span class="lineNum">     333</span> <span class="tlaUNC">           0 :               Provider.of&lt;MovieWatchlistStatusBloc&gt;(context, listen: false).add(</span></span>
-<span id="L334"><span class="lineNum">     334</span> <span class="tlaUNC">           0 :                 GetMovieWatchlistStatusEvent(movie.id),</span></span>
-<span id="L335"><span class="lineNum">     335</span>              :               );</span>
-<span id="L336"><span class="lineNum">     336</span>              :             }</span>
-<span id="L337"><span class="lineNum">     337</span> <span class="tlaUNC">           0 :             if (state is MovieWatchlistInsertFailure) {</span></span>
-<span id="L338"><span class="lineNum">     338</span> <span class="tlaUNC">           0 :               showDialog&lt;void&gt;(</span></span>
-<span id="L339"><span class="lineNum">     339</span>              :                 context: context,</span>
-<span id="L340"><span class="lineNum">     340</span> <span class="tlaUNC">           0 :                 builder: (context) {</span></span>
-<span id="L341"><span class="lineNum">     341</span> <span class="tlaUNC">           0 :                   return AlertDialog(</span></span>
-<span id="L342"><span class="lineNum">     342</span> <span class="tlaUNC">           0 :                     content: Text(state.message),</span></span>
-<span id="L343"><span class="lineNum">     343</span>              :                   );</span>
-<span id="L344"><span class="lineNum">     344</span>              :                 },</span>
-<span id="L345"><span class="lineNum">     345</span>              :               );</span>
-<span id="L346"><span class="lineNum">     346</span>              :             }</span>
-<span id="L347"><span class="lineNum">     347</span>              :           },</span>
-<span id="L348"><span class="lineNum">     348</span>              :         ),</span>
-<span id="L349"><span class="lineNum">     349</span> <span class="tlaGNC tlaBgGNC">           1 :         BlocListener&lt;MovieWatchlistRemoveBloc, MovieWatchlistRemoveState&gt;(</span></span>
-<span id="L350"><span class="lineNum">     350</span> <span class="tlaUNC tlaBgUNC">           0 :           listener: (context, state) {</span></span>
-<span id="L351"><span class="lineNum">     351</span> <span class="tlaUNC">           0 :             if (state is MovieWatchlistRemoveSuccess) {</span></span>
-<span id="L352"><span class="lineNum">     352</span> <span class="tlaUNC">           0 :               ScaffoldMessenger.of(context).clearSnackBars();</span></span>
-<span id="L353"><span class="lineNum">     353</span> <span class="tlaUNC">           0 :               ScaffoldMessenger.of(context).showSnackBar(</span></span>
-<span id="L354"><span class="lineNum">     354</span> <span class="tlaUNC">           0 :                 SnackBar(content: Text(state.message)),</span></span>
-<span id="L355"><span class="lineNum">     355</span>              :               );</span>
-<span id="L356"><span class="lineNum">     356</span> <span class="tlaUNC">           0 :               Provider.of&lt;MovieWatchlistStatusBloc&gt;(context, listen: false).add(</span></span>
-<span id="L357"><span class="lineNum">     357</span> <span class="tlaUNC">           0 :                 GetMovieWatchlistStatusEvent(movie.id),</span></span>
-<span id="L358"><span class="lineNum">     358</span>              :               );</span>
-<span id="L359"><span class="lineNum">     359</span>              :             }</span>
-<span id="L360"><span class="lineNum">     360</span> <span class="tlaUNC">           0 :             if (state is MovieWatchlistRemoveFailure) {</span></span>
-<span id="L361"><span class="lineNum">     361</span> <span class="tlaUNC">           0 :               showDialog&lt;void&gt;(</span></span>
-<span id="L362"><span class="lineNum">     362</span>              :                 context: context,</span>
-<span id="L363"><span class="lineNum">     363</span> <span class="tlaUNC">           0 :                 builder: (context) {</span></span>
-<span id="L364"><span class="lineNum">     364</span> <span class="tlaUNC">           0 :                   return AlertDialog(</span></span>
-<span id="L365"><span class="lineNum">     365</span> <span class="tlaUNC">           0 :                     content: Text(state.message),</span></span>
-<span id="L366"><span class="lineNum">     366</span>              :                   );</span>
-<span id="L367"><span class="lineNum">     367</span>              :                 },</span>
-<span id="L368"><span class="lineNum">     368</span>              :               );</span>
-<span id="L369"><span class="lineNum">     369</span>              :             }</span>
-<span id="L370"><span class="lineNum">     370</span>              :           },</span>
-<span id="L371"><span class="lineNum">     371</span>              :         )</span>
-<span id="L372"><span class="lineNum">     372</span>              :       ],</span>
-<span id="L373"><span class="lineNum">     373</span> <span class="tlaGNC tlaBgGNC">           1 :       child: ElevatedButton(</span></span>
-<span id="L374"><span class="lineNum">     374</span> <span class="tlaGNC">           1 :         onPressed: () async {</span></span>
-<span id="L375"><span class="lineNum">     375</span> <span class="tlaGNC">           1 :           if (!isAddedWatchlist) {</span></span>
-<span id="L376"><span class="lineNum">     376</span> <span class="tlaGNC">           1 :             Provider.of&lt;MovieWatchlistInsertBloc&gt;(</span></span>
-<span id="L377"><span class="lineNum">     377</span>              :               context,</span>
-<span id="L378"><span class="lineNum">     378</span>              :               listen: false,</span>
-<span id="L379"><span class="lineNum">     379</span> <span class="tlaGNC">           3 :             ).add(AddMovieWatchlistInsertEvent(movie));</span></span>
-<span id="L380"><span class="lineNum">     380</span>              :           } else {</span>
-<span id="L381"><span class="lineNum">     381</span> <span class="tlaGNC">           1 :             Provider.of&lt;MovieWatchlistRemoveBloc&gt;(</span></span>
-<span id="L382"><span class="lineNum">     382</span>              :               context,</span>
-<span id="L383"><span class="lineNum">     383</span>              :               listen: false,</span>
-<span id="L384"><span class="lineNum">     384</span> <span class="tlaGNC">           3 :             ).add(AddMovieWatchlistRemoveEvent(movie));</span></span>
-<span id="L385"><span class="lineNum">     385</span>              :           }</span>
-<span id="L386"><span class="lineNum">     386</span>              :         },</span>
-<span id="L387"><span class="lineNum">     387</span> <span class="tlaGNC">           1 :         child: Row(</span></span>
-<span id="L388"><span class="lineNum">     388</span>              :           mainAxisSize: MainAxisSize.min,</span>
-<span id="L389"><span class="lineNum">     389</span> <span class="tlaGNC">           1 :           children: [</span></span>
-<span id="L390"><span class="lineNum">     390</span> <span class="tlaGNC">           1 :             if (isAddedWatchlist)</span></span>
-<span id="L391"><span class="lineNum">     391</span> <span class="tlaGNC">           1 :               const Icon(Icons.check)</span></span>
-<span id="L392"><span class="lineNum">     392</span>              :             else</span>
-<span id="L393"><span class="lineNum">     393</span> <span class="tlaGNC">           1 :               const Icon(Icons.add),</span></span>
-<span id="L394"><span class="lineNum">     394</span> <span class="tlaGNC">           1 :             const Text('Watchlist'),</span></span>
-<span id="L395"><span class="lineNum">     395</span>              :           ],</span>
-<span id="L396"><span class="lineNum">     396</span>              :         ),</span>
-<span id="L397"><span class="lineNum">     397</span>              :       ),</span>
-<span id="L398"><span class="lineNum">     398</span>              :     );</span>
-<span id="L399"><span class="lineNum">     399</span>              :   }</span>
-<span id="L400"><span class="lineNum">     400</span>              : }</span>
+<span id="L333"><span class="lineNum">     333</span>              :             }</span>
+<span id="L334"><span class="lineNum">     334</span> <span class="tlaUNC">           0 :             if (state is MovieWatchlistInsertFailure) {</span></span>
+<span id="L335"><span class="lineNum">     335</span> <span class="tlaUNC">           0 :               showDialog&lt;void&gt;(</span></span>
+<span id="L336"><span class="lineNum">     336</span>              :                 context: context,</span>
+<span id="L337"><span class="lineNum">     337</span> <span class="tlaUNC">           0 :                 builder: (context) {</span></span>
+<span id="L338"><span class="lineNum">     338</span> <span class="tlaUNC">           0 :                   return AlertDialog(</span></span>
+<span id="L339"><span class="lineNum">     339</span> <span class="tlaUNC">           0 :                     content: Text(state.message),</span></span>
+<span id="L340"><span class="lineNum">     340</span>              :                   );</span>
+<span id="L341"><span class="lineNum">     341</span>              :                 },</span>
+<span id="L342"><span class="lineNum">     342</span>              :               );</span>
+<span id="L343"><span class="lineNum">     343</span>              :             }</span>
+<span id="L344"><span class="lineNum">     344</span>              :           },</span>
+<span id="L345"><span class="lineNum">     345</span>              :         ),</span>
+<span id="L346"><span class="lineNum">     346</span> <span class="tlaGNC tlaBgGNC">           1 :         BlocListener&lt;MovieWatchlistRemoveBloc, MovieWatchlistRemoveState&gt;(</span></span>
+<span id="L347"><span class="lineNum">     347</span> <span class="tlaUNC tlaBgUNC">           0 :           listener: (context, state) {</span></span>
+<span id="L348"><span class="lineNum">     348</span> <span class="tlaUNC">           0 :             if (state is MovieWatchlistRemoveSuccess) {</span></span>
+<span id="L349"><span class="lineNum">     349</span> <span class="tlaUNC">           0 :               ScaffoldMessenger.of(context).showSnackBar(</span></span>
+<span id="L350"><span class="lineNum">     350</span> <span class="tlaUNC">           0 :                 SnackBar(content: Text(state.message)),</span></span>
+<span id="L351"><span class="lineNum">     351</span>              :               );</span>
+<span id="L352"><span class="lineNum">     352</span> <span class="tlaUNC">           0 :               Provider.of&lt;MovieWatchlistStatusBloc&gt;(context, listen: false).add(</span></span>
+<span id="L353"><span class="lineNum">     353</span> <span class="tlaUNC">           0 :                 GetMovieWatchlistStatusEvent(movie.id),</span></span>
+<span id="L354"><span class="lineNum">     354</span>              :               );</span>
+<span id="L355"><span class="lineNum">     355</span>              :             }</span>
+<span id="L356"><span class="lineNum">     356</span> <span class="tlaUNC">           0 :             if (state is MovieWatchlistRemoveFailure) {</span></span>
+<span id="L357"><span class="lineNum">     357</span> <span class="tlaUNC">           0 :               showDialog&lt;void&gt;(</span></span>
+<span id="L358"><span class="lineNum">     358</span>              :                 context: context,</span>
+<span id="L359"><span class="lineNum">     359</span> <span class="tlaUNC">           0 :                 builder: (context) {</span></span>
+<span id="L360"><span class="lineNum">     360</span> <span class="tlaUNC">           0 :                   return AlertDialog(</span></span>
+<span id="L361"><span class="lineNum">     361</span> <span class="tlaUNC">           0 :                     content: Text(state.message),</span></span>
+<span id="L362"><span class="lineNum">     362</span>              :                   );</span>
+<span id="L363"><span class="lineNum">     363</span>              :                 },</span>
+<span id="L364"><span class="lineNum">     364</span>              :               );</span>
+<span id="L365"><span class="lineNum">     365</span>              :             }</span>
+<span id="L366"><span class="lineNum">     366</span>              :           },</span>
+<span id="L367"><span class="lineNum">     367</span>              :         )</span>
+<span id="L368"><span class="lineNum">     368</span>              :       ],</span>
+<span id="L369"><span class="lineNum">     369</span> <span class="tlaGNC tlaBgGNC">           1 :       child: ElevatedButton(</span></span>
+<span id="L370"><span class="lineNum">     370</span> <span class="tlaGNC">           1 :         onPressed: () async {</span></span>
+<span id="L371"><span class="lineNum">     371</span> <span class="tlaGNC">           1 :           if (!isAddedWatchlist) {</span></span>
+<span id="L372"><span class="lineNum">     372</span> <span class="tlaGNC">           1 :             Provider.of&lt;MovieWatchlistInsertBloc&gt;(</span></span>
+<span id="L373"><span class="lineNum">     373</span>              :               context,</span>
+<span id="L374"><span class="lineNum">     374</span>              :               listen: false,</span>
+<span id="L375"><span class="lineNum">     375</span> <span class="tlaGNC">           3 :             ).add(AddMovieWatchlistInsertEvent(movie));</span></span>
+<span id="L376"><span class="lineNum">     376</span>              :           } else {</span>
+<span id="L377"><span class="lineNum">     377</span> <span class="tlaGNC">           1 :             Provider.of&lt;MovieWatchlistRemoveBloc&gt;(</span></span>
+<span id="L378"><span class="lineNum">     378</span>              :               context,</span>
+<span id="L379"><span class="lineNum">     379</span>              :               listen: false,</span>
+<span id="L380"><span class="lineNum">     380</span> <span class="tlaGNC">           3 :             ).add(AddMovieWatchlistRemoveEvent(movie));</span></span>
+<span id="L381"><span class="lineNum">     381</span>              :           }</span>
+<span id="L382"><span class="lineNum">     382</span>              :         },</span>
+<span id="L383"><span class="lineNum">     383</span> <span class="tlaGNC">           1 :         child: Row(</span></span>
+<span id="L384"><span class="lineNum">     384</span>              :           mainAxisSize: MainAxisSize.min,</span>
+<span id="L385"><span class="lineNum">     385</span> <span class="tlaGNC">           1 :           children: [</span></span>
+<span id="L386"><span class="lineNum">     386</span> <span class="tlaGNC">           1 :             if (isAddedWatchlist)</span></span>
+<span id="L387"><span class="lineNum">     387</span> <span class="tlaGNC">           1 :               const Icon(Icons.check)</span></span>
+<span id="L388"><span class="lineNum">     388</span>              :             else</span>
+<span id="L389"><span class="lineNum">     389</span> <span class="tlaGNC">           1 :               const Icon(Icons.add),</span></span>
+<span id="L390"><span class="lineNum">     390</span> <span class="tlaGNC">           1 :             const Text('Watchlist'),</span></span>
+<span id="L391"><span class="lineNum">     391</span>              :           ],</span>
+<span id="L392"><span class="lineNum">     392</span>              :         ),</span>
+<span id="L393"><span class="lineNum">     393</span>              :       ),</span>
+<span id="L394"><span class="lineNum">     394</span>              :     );</span>
+<span id="L395"><span class="lineNum">     395</span>              :   }</span>
+<span id="L396"><span class="lineNum">     396</span>              : }</span>
         </pre>
               </td>
             </tr>
