@@ -2,10 +2,8 @@ import 'package:dependencies/flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:tv_series/domain/entities/tv_series.dart';
 import 'package:tv_series/presentation/bloc/tv_series_bloc.dart';
 import 'package:tv_series/presentation/pages/tv_series_list_page.dart';
-import 'package:tv_series/presentation/widgets/tv_series_card.dart';
 
 import '../../dummy_data/dummy_objects.dart';
 import 'mock_bloc_tv_series.dart';
@@ -79,7 +77,7 @@ void main() {
             TvSeriesTopRatedInitial(),
           );
 
-          final tvSeriesListWidgets = find.byType(TvSeriesCard);
+          final tvSeriesListWidgets = find.byType(TvSeriesListWidget);
 
           await tester.pumpWidget(
             makeTestableWidget(const TvSeriesListPage()),
@@ -88,45 +86,7 @@ void main() {
           expect(tvSeriesListWidgets, findsOneWidget);
         },
       );
-      testWidgets(
-        'should display list of TV Series with default icon if image empty',
-        (tester) async {
-          const tvSeries = TvSeries(
-            id: 209265,
-            name: 'Terra e Paixão',
-            overview: 'lorem ipsum dolores sit amet',
-            // posterPath: '/voaKRrYExZNkf1E4FZExU7fTd8w.jpg',
-            firstAirDate: '2023-05-08',
-            genreIds: [18, 80, 10766],
-            originCountry: ['BR'],
-            originalLanguage: 'pt',
-            originalName: 'Terra e Paixão',
-            popularity: 2985.435,
-            voteAverage: 6.6,
-            voteCount: 5,
-            backdropPath: '/aWPhMZ0P2DyfWB7k5NXhGHSZHGC.jpg',
-          );
 
-          final iconImage = find.byIcon(Icons.image);
-
-          when(() => mockTvSeriesAiringTodayBloc.state).thenReturn(
-            TvSeriesAiringTodaySuccess(const [tvSeries]),
-          );
-
-          when(() => mockTvSeriesPopularBloc.state).thenReturn(
-            TvSeriesPopularInitial(),
-          );
-          when(() => mockTvSeriesTopRatedBloc.state).thenReturn(
-            TvSeriesTopRatedInitial(),
-          );
-
-          await tester.pumpWidget(
-            makeTestableWidget(const TvSeriesListPage()),
-          );
-
-          expect(iconImage, findsOneWidget);
-        },
-      );
       testWidgets(
         'should display failure message',
         (tester) async {
@@ -192,7 +152,7 @@ void main() {
             TvSeriesTopRatedInitial(),
           );
 
-          final tvSeriesListWidgets = find.byType(TvSeriesCard);
+          final tvSeriesListWidgets = find.byType(TvSeriesListWidget);
 
           await tester.pumpWidget(
             makeTestableWidget(const TvSeriesListPage()),
@@ -266,7 +226,7 @@ void main() {
             TvSeriesTopRatedSuccess(const [testTvSeries]),
           );
 
-          final tvSeriesListWidgets = find.byType(TvSeriesCard);
+          final tvSeriesListWidgets = find.byType(TvSeriesListWidget);
 
           await tester.pumpWidget(
             makeTestableWidget(const TvSeriesListPage()),

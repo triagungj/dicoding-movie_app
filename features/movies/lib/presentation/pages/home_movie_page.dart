@@ -1,14 +1,16 @@
 import 'package:common/styles.dart';
 import 'package:components/app_drawer/app_drawer.dart';
 import 'package:components/label_see_more/label_see_more.dart';
+import 'package:core/constants.dart';
 import 'package:core/named_routes.dart';
+import 'package:dependencies/cached_network_image/cached_network_image.dart';
 import 'package:dependencies/flutter_bloc/flutter_bloc.dart';
 import 'package:dependencies/provider/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:movies/domain/entities/movie.dart';
 import 'package:movies/presentation/bloc/movies_now_playing/movies_now_playing_bloc.dart';
 import 'package:movies/presentation/bloc/movies_popular/movies_popular_bloc.dart';
 import 'package:movies/presentation/bloc/movies_top_rated/movies_top_rated_bloc.dart';
-import 'package:movies/presentation/widgets/movie_card_list.dart';
 
 class HomeMoviePage extends StatefulWidget {
   const HomeMoviePage({super.key});
@@ -72,12 +74,7 @@ class HomeMoviePageState extends State<HomeMoviePage> {
                     child: CircularProgressIndicator(),
                   );
                 } else if (state is MoviesNowPlayingSuccess) {
-                  return Column(
-                    children: List.generate(
-                      state.result.length,
-                      (index) => MovieCard(state.result[index]),
-                    ),
-                  );
+                  return MovieList(state.result);
                 } else if (state is MoviesNowPlayingFailure) {
                   return Text(state.message);
                 } else {
@@ -100,12 +97,7 @@ class HomeMoviePageState extends State<HomeMoviePage> {
                     child: CircularProgressIndicator(),
                   );
                 } else if (state is MoviesPopularSuccess) {
-                  return Column(
-                    children: List.generate(
-                      state.result.length,
-                      (index) => MovieCard(state.result[index]),
-                    ),
-                  );
+                  return MovieList(state.result);
                 } else if (state is MoviesPopularFailure) {
                   return Text(state.message);
                 } else {
@@ -128,12 +120,7 @@ class HomeMoviePageState extends State<HomeMoviePage> {
                     child: CircularProgressIndicator(),
                   );
                 } else if (state is MoviesTopRatedSuccess) {
-                  return Column(
-                    children: List.generate(
-                      state.result.length,
-                      (index) => MovieCard(state.result[index]),
-                    ),
-                  );
+                  return MovieList(state.result);
                 } else if (state is MoviesTopRatedFailure) {
                   return Text(state.message);
                 } else {
@@ -143,6 +130,46 @@ class HomeMoviePageState extends State<HomeMoviePage> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class MovieList extends StatelessWidget {
+  const MovieList(this.movies, {super.key});
+  final List<Movie> movies;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 200,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          final movie = movies[index];
+          return Container(
+            padding: const EdgeInsets.all(8),
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  NamedRoutes.detailMoviePage,
+                  arguments: movie.id,
+                );
+              },
+              child: ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(16)),
+                child: CachedNetworkImage(
+                  imageUrl: '${Constants.baseImageUrl}${movie.posterPath}',
+                  placeholder: (context, url) => const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
+        itemCount: movies.length,
       ),
     );
   }

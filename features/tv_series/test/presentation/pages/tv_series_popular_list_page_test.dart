@@ -2,6 +2,7 @@ import 'package:dependencies/flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:tv_series/domain/entities/tv_series.dart';
 import 'package:tv_series/presentation/widgets/tv_series_card.dart';
 import 'package:tv_series/tv_series.dart';
 
@@ -40,6 +41,39 @@ void main() {
           final loadingWidgets = find.byType(CircularProgressIndicator);
 
           expect(loadingWidgets, findsOneWidget);
+        },
+      );
+
+      testWidgets(
+        'should display list of TV Series with default icon if image empty',
+        (tester) async {
+          const tvSeries = TvSeries(
+            id: 209265,
+            name: 'Terra e Paixão',
+            overview: 'lorem ipsum dolores sit amet',
+            // posterPath: '/voaKRrYExZNkf1E4FZExU7fTd8w.jpg',
+            firstAirDate: '2023-05-08',
+            genreIds: [18, 80, 10766],
+            originCountry: ['BR'],
+            originalLanguage: 'pt',
+            originalName: 'Terra e Paixão',
+            popularity: 2985.435,
+            voteAverage: 6.6,
+            voteCount: 5,
+            backdropPath: '/aWPhMZ0P2DyfWB7k5NXhGHSZHGC.jpg',
+          );
+
+          final iconImage = find.byIcon(Icons.image);
+
+          when(() => mockTvSeriesPopularBloc.state).thenReturn(
+            TvSeriesPopularSuccess(const [tvSeries]),
+          );
+
+          await tester.pumpWidget(
+            makeTestableWidget(const TvSeriesPopularListPage()),
+          );
+
+          expect(iconImage, findsOneWidget);
         },
       );
       testWidgets(

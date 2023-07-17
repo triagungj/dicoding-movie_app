@@ -295,8 +295,6 @@ class ListRecommendationsWidget extends StatelessWidget {
                         placeholder: (context, url) => const Center(
                           child: CircularProgressIndicator(),
                         ),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
                       )
                     : const Icon(Icons.image),
               ),
@@ -326,7 +324,6 @@ class WatchlistButton extends StatelessWidget {
         BlocListener<MovieWatchlistInsertBloc, MovieWatchlistInsertState>(
           listener: (context, state) {
             if (state is MovieWatchlistInsertSuccess) {
-              ScaffoldMessenger.of(context).clearSnackBars();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text(state.message)),
               );
@@ -349,7 +346,6 @@ class WatchlistButton extends StatelessWidget {
         BlocListener<MovieWatchlistRemoveBloc, MovieWatchlistRemoveState>(
           listener: (context, state) {
             if (state is MovieWatchlistRemoveSuccess) {
-              ScaffoldMessenger.of(context).clearSnackBars();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text(state.message)),
               );

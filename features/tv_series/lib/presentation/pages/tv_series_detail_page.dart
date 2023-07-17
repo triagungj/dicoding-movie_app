@@ -293,8 +293,6 @@ class ListSeasonWidget extends StatelessWidget {
                             placeholder: (context, url) => const Center(
                               child: CircularProgressIndicator(),
                             ),
-                            errorWidget: (context, url, error) =>
-                                const Icon(Icons.error),
                           )
                         : const Icon(Icons.image),
                   ),
@@ -355,8 +353,6 @@ class ListTvSeriesWidget extends StatelessWidget {
                         placeholder: (context, url) => const Center(
                           child: CircularProgressIndicator(),
                         ),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
                       )
                     : const Icon(Icons.image),
               ),
