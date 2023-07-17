@@ -65,8 +65,6 @@ class MovieCard extends StatelessWidget {
                         placeholder: (context, url) => const Center(
                           child: CircularProgressIndicator(),
                         ),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
                       )
                     : Padding(
                         padding: const EdgeInsets.only(left: 16, bottom: 10),

@@ -57,6 +57,7 @@ class MovieDetailPageState extends State<MovieDetailPage> {
             return SafeArea(
               child: DetailContent(
                 movie: movie,
+                key: const Key('detailContent'),
               ),
             );
           } else if (state is MovieDetailFailure) {
@@ -92,7 +93,6 @@ class DetailContent extends StatelessWidget {
             placeholder: (context, url) => const Center(
               child: CircularProgressIndicator(),
             ),
-            errorWidget: (context, url, error) => const Icon(Icons.error),
           )
         else
           Container(

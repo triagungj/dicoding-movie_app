@@ -57,7 +57,10 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
               ),
             );
           } else if (state is TvSeriesDetailFailure) {
-            return Text(state.message);
+            return Text(
+              state.message,
+              key: const Key('textErrorWidget'),
+            );
           }
           return const SizedBox();
         },
@@ -84,7 +87,7 @@ class DetailContent extends StatelessWidget {
           placeholder: (context, url) => const Center(
             child: CircularProgressIndicator(),
           ),
-          errorWidget: (context, url, error) => const Icon(Icons.error),
+          key: const Key('containerPoster'),
         ),
         Container(
           margin: const EdgeInsets.only(top: 48 + 8),
@@ -191,15 +194,20 @@ class DetailContent extends StatelessWidget {
                                   );
                                 } else if (state
                                     is TvSeriesRecommendationsFailure) {
-                                  return Text(state.message);
+                                  return Text(
+                                    state.message,
+                                    key: const Key('textRecommendationError'),
+                                  );
                                 } else if (state
                                     is TvSeriesRecommendationsSuccess) {
                                   return ListTvSeriesWidget(
                                     listTvSeries: state.results,
                                   );
-                                } else {
-                                  return Container();
                                 }
+
+                                return Container(
+                                  key: const Key('emptyContainer'),
+                                );
                               },
                             ),
                           ],

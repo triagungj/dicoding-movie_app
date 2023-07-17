@@ -60,11 +60,13 @@ class SearchMoviePage extends StatelessWidget {
                             child: Text('Result is empty'),
                           ),
                   );
-                } else {
-                  return Expanded(
-                    child: Container(),
-                  );
                 }
+
+                return Expanded(
+                  child: Container(
+                    key: const Key('emptyContainer'),
+                  ),
+                );
               },
             ),
           ],

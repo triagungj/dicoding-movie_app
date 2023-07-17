@@ -72,7 +72,9 @@ class TvSeriesSearchPage extends StatelessWidget {
                   );
                 }
                 return Expanded(
-                  child: Container(),
+                  child: Container(
+                    key: const Key('emptyContainer'),
+                  ),
                 );
               },
             ),
