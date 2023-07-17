@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:components/app_drawer/cubit/drawer_cubit.dart';
 import 'package:core/client_handler.dart';
 import 'package:dependencies/get_it/get_it.dart';
@@ -20,6 +22,9 @@ import 'package:tv_series/presentation/bloc/tv_series_bloc.dart';
 final locator = GetIt.instance;
 
 Future<void> init() async {
+  final clientHandler = ClientHandler();
+  final securityContext = await clientHandler.securityContext;
+
   locator
     // * MOVIES
     ..registerFactory(
@@ -139,9 +144,14 @@ Future<void> init() async {
 
     // external
     ..registerLazySingleton<IOClient>(
-      () => locator<ClientHandler>().client,
+      () => locator<ClientHandler>().ioClient(
+        securityContext,
+      ),
     )
-    ..registerLazySingleton<ClientHandler>(ClientHandler.new)
+    ..registerLazySingleton<SecurityContext>(
+      () => securityContext,
+    )
+    ..registerLazySingleton<ClientHandler>(() => clientHandler)
 
     // drawer
     ..registerLazySingleton(DrawerCubit.new);

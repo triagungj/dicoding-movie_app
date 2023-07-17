@@ -25,14 +25,8 @@ class ClientHandler {
     return globalContext;
   }
 
-  static IOClient? _client;
-
-  IOClient get client {
-    return _client ??= ioClient();
-  }
-
-  IOClient ioClient() {
-    final client = HttpClient(context: _securityContext)
+  IOClient ioClient(SecurityContext contextSecurity) {
+    final client = HttpClient(context: contextSecurity)
       ..badCertificateCallback = (
         X509Certificate cert,
         String host,
